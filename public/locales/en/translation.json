@@ -1,7 +1,9 @@
 {
-  "Тестовый пример": "Test example",
-  "Перевод": "Translate",
-  "Главная страница": "Main page",
-  "Язык": "English",
-  "новый перевод": "новый перевод"
+    "Тестовый пример": "Test example",
+    "Перевод": "Translate",
+    "Главная страница": "Main page",
+    "Язык": "English",
+    "новый перевод": "new translate",
+    "извините, произошла ошибка": "Sorry.. there was an error"
 }
+
