@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "presets": [
         "@babel/preset-env",
         "@babel/preset-typescript",
@@ -10,9 +9,5 @@
             }
         ]
     ],
-=======
-    "presets": ["@babel/preset-env", "@babel/preset-typescript", ["@babel/preset-react", { "runtime": "automatic" }]],
->>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
     "plugins": ["i18next-extract"]
 }
-
