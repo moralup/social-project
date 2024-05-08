@@ -4,7 +4,17 @@ module.exports = {
         es2021: true,
         jest: true,
     },
+<<<<<<< HEAD
     extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
+=======
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        // 'plugin:prettier/recommended',
+        'prettier',
+    ],
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -31,13 +41,34 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+<<<<<<< HEAD
         'object-curly-newline': 'off',
         'i18next/no-literal-string': ['error', { markupOnly: true, onlyAttribute: [''] }],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'linebreak-style': 'off',
         'arrow-body-style': 'off',
+=======
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                onlyAttribute: [''],
+            },
+        ],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'linebreak-style': 'off',
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts, tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };
+

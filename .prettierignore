@@ -4,4 +4,8 @@ coverage
 node_modules
 *.html
 *.css
+<<<<<<< HEAD
 *.scss
+=======
+*.scss
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118

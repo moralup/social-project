@@ -2,6 +2,7 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
+<<<<<<< HEAD
 
 import path from 'path';
 
@@ -16,21 +17,37 @@ export default {
     // cacheDirectory: "C:\\Users\\tim\\AppData\\Local\\Temp\\jest",
 
     // Automatically clear mock calls, instances and results before every test
+=======
+import path from 'path';
+
+export default {
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     moduleDirectories: ['node_modules'],
+<<<<<<< HEAD
+=======
+    modulePaths: ['<rootDir>src'],
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
     testMatch: [
         // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     rootDir: '../../',
+<<<<<<< HEAD
     modulePaths: ['<rootDir>src'],
     setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.s?css': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
+=======
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
     },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -188,3 +205,7 @@ export default {
     // Whether to use watchman for file crawling
     // watchman: true,
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 055736284f79264b7d7c2bb32b6b62b5d11ed118
