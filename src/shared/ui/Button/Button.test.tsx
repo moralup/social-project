@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { render, screen } from '@testing-library/react';
 
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonTheme } from './Button';
 
 describe('Button', () => {
     test('Test render', () => {
@@ -10,7 +10,7 @@ describe('Button', () => {
     });
 
     test('Test theme class', () => {
-        render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
+        render(<Button theme={ButtonTheme.CLEAR}>Test</Button>);
         expect(screen.getByTestId('button')).toHaveClass('clear');
     });
 

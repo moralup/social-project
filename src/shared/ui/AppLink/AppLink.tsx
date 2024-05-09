@@ -15,20 +15,13 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {
-    const {
-        to,
-        className,
-        children,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
+    const { to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps } = props;
 
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, { [cls[theme]]: true }, [
-                className,
-            ])}
+            className={classNames(cls.AppLink, { [cls[theme]]: true }, [className])}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
             {children}
