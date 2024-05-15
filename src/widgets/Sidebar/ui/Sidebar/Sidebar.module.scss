@@ -6,10 +6,6 @@
     transition: width 0.3s;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -20,4 +16,43 @@
 
 .lang {
     margin-left: 20px;
+}
+
+.collapseBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 32px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+    .icon {
+        vertical-align: middle;
+        fill: var(--inverted-primary-color);
+        margin-right: 10px;
+    }
+
+    .text {
+        opacity: 1;
+        transition: 0.2s opacity;
+    }
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .lang {
+        margin: 0;
+    }
+
+    .text {
+        opacity: 0;
+    }
 }
