@@ -5,9 +5,7 @@ import { AppRouter } from 'app/providers/router';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-
-import { ErrorBoundary } from 'app/providers/ErrorBoundary';
-import './styles/index.scss';
+import { ErrorBoundary } from './providers/ErrorBoundary';
 
 function App() {
     const { theme } = useTheme();
