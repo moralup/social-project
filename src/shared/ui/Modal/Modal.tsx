@@ -13,7 +13,7 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal: FC<ModalProps> = props => {
     const { children, className, isOpen, onClose, withoutPortal } = props;
 
     const [isClose, setIsClose] = useState(false);

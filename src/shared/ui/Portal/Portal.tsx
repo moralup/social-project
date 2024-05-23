@@ -1,4 +1,4 @@
-import { FC, ReactElement, ReactNode } from 'react';
+import { FC, ReactElement } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
@@ -6,8 +6,8 @@ interface PortalProps {
     withoutPortal?: boolean;
 }
 
-export const Portal: FC<PortalProps> = (props) => {
+export const Portal: FC<PortalProps> = props => {
     const { children, parent = document.querySelector('.app'), withoutPortal } = props;
 
-    return withoutPortal ? children as ReactElement : createPortal(children, parent);
+    return withoutPortal ? (children as ReactElement) : createPortal(children, parent);
 };

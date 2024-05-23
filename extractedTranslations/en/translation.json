@@ -1,9 +1,12 @@
 {
   "": "",
+  "decrement": "decrement",
   "hel": "hel",
   "hello": "hello",
+  "increment": "increment",
   "lorem": "lorem",
   "throw error": "throw error",
+  "value": "value",
   "Войти": "Войти",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
