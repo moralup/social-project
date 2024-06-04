@@ -24,6 +24,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
                 theme={InputTheme.BOTTOM_LINE}
                 caption={t('login')}
                 className={cls.input}
+                data-testid="login"
                 required
             />
             <Input
@@ -33,6 +34,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
                 theme={InputTheme.BOTTOM_LINE}
                 caption={t('password')}
                 className={cls.input}
+                data-testid="password"
                 required
             />
             <Button

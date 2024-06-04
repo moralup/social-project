@@ -30,8 +30,16 @@ export const Input: FC<InputProps> = props => {
 
     return (
         <label className={classNames(cls.label, {}, [className])}>
-            {caption && <span className={cls.caption}>{caption}</span>}
+            {caption && (
+                <span
+                    data-testid="caption"
+                    className={cls.caption}
+                >
+                    {caption}
+                </span>
+            )}
             <input
+                data-testid="input"
                 type={type}
                 value={value}
                 onChange={onChangeHandler}
