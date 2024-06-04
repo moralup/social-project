@@ -7,7 +7,6 @@ const meta: Meta<typeof Modal> = {
     title: 'shared/Modal',
     component: Modal,
     args: {
-        withoutPortal: true,
         isOpen: true,
         children: `Lorem ipsum dolor sit amet consectetur
 adipisicing elit. Voluptatibus iusto eius unde rem maiores

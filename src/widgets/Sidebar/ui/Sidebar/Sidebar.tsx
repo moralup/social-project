@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { LangSwitcher } from 'widgets/LangSwitcher';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'features/LangSwitcher';
+import { ThemeSwitcher } from 'features/ThemeSwitcher';
 
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 

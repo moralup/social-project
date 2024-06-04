@@ -50,6 +50,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'arrow-parens': [2, 'as-needed'],
         'import/no-named-default': 0,
+        'jsx-a11y/label-has-associated-control': 'off',
     },
     globals: {
         __IS_DEV__: true,
