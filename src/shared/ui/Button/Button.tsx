@@ -24,28 +24,32 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
+    disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = props => {
-    // prettier-ignore
     const {
         className,
         children,
         square,
         theme,
         size = ButtonSize.M,
+        disabled,
         ...otherProps
     } = props;
 
+    const additional = [className, cls[theme], cls[size]];
+    const mods = {
+        [cls.square]: square,
+        [cls.disabled]: disabled,
+    };
+
     return (
         <button
+            disabled={disabled}
             type="button"
             data-testid="button"
-            className={classNames(cls.Button, { [cls.square]: square }, [
-                className,
-                cls[theme],
-                cls[size],
-            ])}
+            className={classNames(cls.Button, mods, additional)}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >

@@ -1,8 +1,17 @@
-import { FC, useState } from 'react';
+import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Input, InputTheme } from 'shared/ui/Input/input';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, TextTheme } from 'shared/ui/Text';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+
+import { getLogin } from '../../model/selectors/getLogin';
+import { setPassword, setUsername } from '../../model/slice/loginSlice';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+
 import cls from './loginForm.module.scss';
 
 interface LoginFormProps {
@@ -11,16 +20,42 @@ interface LoginFormProps {
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const { username, password, isLoading, error } = useSelector(getLogin);
 
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(setUsername(value));
+        },
+        [dispatch],
+    );
+
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(setPassword(value));
+        },
+        [dispatch],
+    );
+
+    const onLoginClick = useCallback(() => {
+        dispatch(loginByUsername({ password, username }));
+    }, [dispatch, password, username]);
 
     return (
         <div className={classNames(cls.loginForm, {}, [className])}>
+            <Text title={t('Форма авторизации')} />
+            {error && (
+                <Text
+                    title={t('error')}
+                    theme={TextTheme.ERROR}
+                >
+                    {t('Вы ввели неверный логин или пароль')}
+                </Text>
+            )}
             <Input
                 type="text"
                 value={username}
-                onChange={value => setUsername(value)}
+                onChange={onChangeUsername}
                 theme={InputTheme.BOTTOM_LINE}
                 caption={t('login')}
                 className={cls.input}
@@ -30,7 +65,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
             <Input
                 type="text"
                 value={password}
-                onChange={value => setPassword(value)}
+                onChange={onChangePassword}
                 theme={InputTheme.BOTTOM_LINE}
                 caption={t('password')}
                 className={cls.input}
@@ -38,7 +73,9 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
                 required
             />
             <Button
+                disabled={isLoading}
                 theme={ButtonTheme.CLEAR}
+                onClick={onLoginClick}
                 className={cls.loginBtn}
             >
                 {t('Войти')}

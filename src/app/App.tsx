@@ -1,13 +1,22 @@
 import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+
+import { initAuthData } from 'entities/user';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { ErrorBoundary } from './providers/ErrorBoundary';
 
 function App() {
     const { theme } = useTheme();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(initAuthData());
+    }, [dispatch]);
 
     useEffect(() => {
         document.body.className = theme;

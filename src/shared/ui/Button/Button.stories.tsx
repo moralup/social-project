@@ -98,6 +98,13 @@ export const BackgroundInvertedDark: Story = {
     decorators: [themeDecorator(Theme.DARK)],
 };
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+        theme: ButtonTheme.OUTLINE,
+    },
+};
+
 export const Square: Story = {
     args: {
         square: true,
