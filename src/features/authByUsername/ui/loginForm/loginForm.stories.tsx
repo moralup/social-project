@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { storeDecorator } from 'shared/config/storybook/storeDecorator';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { LoginForm } from './loginForm';
+import LoginForm from './loginForm';
 
 const store: DeepPartial<StateSchema> = {
     login: {
