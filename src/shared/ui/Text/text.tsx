@@ -14,10 +14,20 @@ interface TextProps {
 }
 
 export const Text: FC<TextProps> = props => {
-    const { children, theme, className, title } = props;
+    const {
+        children,
+        theme,
+        className,
+        title,
+
+        ...otherProps
+    } = props;
 
     return (
-        <div className={classNames(cls.textWrapper, {}, [className, cls[theme]])}>
+        <div
+            className={classNames(cls.textWrapper, {}, [className, cls[theme]])}
+            {...otherProps}
+        >
             {title && <h3 className={cls.title}>{title}</h3>}
             {children && <span className={cls.text}>{children}</span>}
         </div>

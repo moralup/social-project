@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, setAuthData } from 'entities/user';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
 
-interface loginByUsernameProps {
+export interface loginByUsernameProps {
     username: string;
     password: string;
 }

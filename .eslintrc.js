@@ -52,6 +52,7 @@ module.exports = {
         'import/no-named-default': 0,
         'jsx-a11y/label-has-associated-control': 'off',
         'react/prop-types': 'off',
+        'lines-between-class-members': 'off',
     },
     globals: {
         __IS_DEV__: true,

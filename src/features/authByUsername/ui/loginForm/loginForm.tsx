@@ -60,6 +60,7 @@ const LoginForm: FC<LoginFormProps> = memo<LoginFormProps>(({ className }) => {
                     <Text
                         title={t('error')}
                         theme={TextTheme.ERROR}
+                        data-testid="error"
                     >
                         {t('Вы ввели неверный логин или пароль')}
                     </Text>
@@ -71,7 +72,7 @@ const LoginForm: FC<LoginFormProps> = memo<LoginFormProps>(({ className }) => {
                     theme={InputTheme.BOTTOM_LINE}
                     caption={t('login')}
                     className={cls.input}
-                    data-testid="login"
+                    data-testid="username"
                     required
                 />
                 <Input
@@ -89,6 +90,7 @@ const LoginForm: FC<LoginFormProps> = memo<LoginFormProps>(({ className }) => {
                     theme={ButtonTheme.CLEAR}
                     onClick={onLoginClick}
                     className={cls.loginBtn}
+                    data-testid="login-btn"
                 >
                     {t('Войти')}
                 </Button>
