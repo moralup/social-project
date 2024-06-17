@@ -26,3 +26,5 @@ export const createStore = (
 
     return store;
 };
+
+export type AppDispatch = ReturnType<typeof createStore>['dispatch'];

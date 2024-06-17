@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC, InputHTMLAttributes } from 'react';
+import { ChangeEventHandler, FC, InputHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './input.module.scss';
 
@@ -21,8 +21,17 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-export const Input: FC<InputProps> = props => {
-    const { theme, type = 'text', caption, value, onChange, className, ...otherProps } = props;
+export const Input: FC<InputProps> = memo((props: InputProps) => {
+    const {
+        theme,
+        type = 'text',
+        caption,
+        value,
+        onChange,
+        className,
+
+        ...otherProps
+    } = props;
 
     const onChangeHandler: ChangeEventHandler<HTMLInputElement> = e => {
         onChange?.(e.target.value);
@@ -49,4 +58,4 @@ export const Input: FC<InputProps> = props => {
             />
         </label>
     );
-};
+});

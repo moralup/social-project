@@ -1,0 +1,18 @@
+.icon {
+    vertical-align: middle;
+    fill: var(--inverted-primary-color);
+    margin-right: 10px;
+}
+
+.text {
+    opacity: 1;
+    transition: 0.2s opacity;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .text {
+        opacity: 0;
+    }
+}

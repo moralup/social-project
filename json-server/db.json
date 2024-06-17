@@ -25,5 +25,14 @@
             "password": "123"
         }
     ],
-    "profile": { "name": "typicode" }
+    "profile": { 
+        "firstName": "Павший",
+        "lastName": "Воин",
+        "age": 23,
+        "country": "Russia",
+        "city": "Moscow",
+        "username": "moraldown",
+        "avatar": "https://sun9-41.userapi.com/impg/IIAl9iEQWXtn0EK4RxxYCEEG5Wwyyj9LS8MtSw/_OE5A5gIfXQ.jpg?size=1280x972&quality=96&sign=90818af4a69d9d5c7243bc169e55792e&c_uniq_tag=7OYtf2tHGKTwcB4rfJv3ZMsx0QgYAZX8m8WWAwSjXOI&type=album"
+
+    }
 }

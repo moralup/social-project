@@ -1,6 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
 
 import { Input, InputTheme } from 'shared/ui/Input/input';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -21,82 +22,89 @@ import cls from './loginForm.module.scss';
 
 interface LoginFormProps {
     className?: string;
+    onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = { login: loginReducer };
 
-const LoginForm: FC<LoginFormProps> = memo<LoginFormProps>(({ className }) => {
-    const { t } = useTranslation();
-    const dispatch = useDispatch();
+const LoginForm: FC<LoginFormProps> = memo<LoginFormProps>(
+    ({ className, onSuccess }: LoginFormProps) => {
+        const { t } = useTranslation();
+        const dispatch = useTypedDispatch();
 
-    const username = useSelector(getUsername);
-    const password = useSelector(getPassword);
-    const isLoading = useSelector(getIsLoading);
-    const error = useSelector(getError);
+        const username = useSelector(getUsername);
+        const password = useSelector(getPassword);
+        const isLoading = useSelector(getIsLoading);
+        const error = useSelector(getError);
 
-    const onChangeUsername = useCallback(
-        (value: string) => {
-            dispatch(setUsername(value));
-        },
-        [dispatch],
-    );
+        const onChangeUsername = useCallback(
+            (value: string) => {
+                dispatch(setUsername(value));
+            },
+            [dispatch],
+        );
 
-    const onChangePassword = useCallback(
-        (value: string) => {
-            dispatch(setPassword(value));
-        },
-        [dispatch],
-    );
+        const onChangePassword = useCallback(
+            (value: string) => {
+                dispatch(setPassword(value));
+            },
+            [dispatch],
+        );
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ password, username }));
-    }, [dispatch, password, username]);
+        const onLoginClick = useCallback(async () => {
+            const result = await dispatch(loginByUsername({ password, username }));
 
-    return (
-        <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(cls.loginForm, {}, [className])}>
-                <Text title={t('Форма авторизации')} />
-                {error && (
-                    <Text
-                        title={t('error')}
-                        theme={TextTheme.ERROR}
-                        data-testid="error"
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+            }
+        }, [dispatch, onSuccess, password, username]);
+
+        return (
+            <DynamicModuleLoader reducers={initialReducers}>
+                <div className={classNames(cls.loginForm, {}, [className])}>
+                    <Text title={t('Форма авторизации')} />
+                    {error && (
+                        <Text
+                            title={t('error')}
+                            theme={TextTheme.ERROR}
+                            data-testid="error"
+                        >
+                            {t('Вы ввели неверный логин или пароль')}
+                        </Text>
+                    )}
+                    <Input
+                        type="text"
+                        value={username}
+                        onChange={onChangeUsername}
+                        theme={InputTheme.BOTTOM_LINE}
+                        caption={t('login')}
+                        className={cls.input}
+                        data-testid="username"
+                        required
+                    />
+                    <Input
+                        type="text"
+                        value={password}
+                        onChange={onChangePassword}
+                        theme={InputTheme.BOTTOM_LINE}
+                        caption={t('password')}
+                        className={cls.input}
+                        data-testid="password"
+                        required
+                    />
+                    <Button
+                        disabled={isLoading}
+                        theme={ButtonTheme.CLEAR}
+                        onClick={onLoginClick}
+                        className={cls.loginBtn}
+                        data-testid="login-btn"
                     >
-                        {t('Вы ввели неверный логин или пароль')}
-                    </Text>
-                )}
-                <Input
-                    type="text"
-                    value={username}
-                    onChange={onChangeUsername}
-                    theme={InputTheme.BOTTOM_LINE}
-                    caption={t('login')}
-                    className={cls.input}
-                    data-testid="username"
-                    required
-                />
-                <Input
-                    type="text"
-                    value={password}
-                    onChange={onChangePassword}
-                    theme={InputTheme.BOTTOM_LINE}
-                    caption={t('password')}
-                    className={cls.input}
-                    data-testid="password"
-                    required
-                />
-                <Button
-                    disabled={isLoading}
-                    theme={ButtonTheme.CLEAR}
-                    onClick={onLoginClick}
-                    className={cls.loginBtn}
-                    data-testid="login-btn"
-                >
-                    {t('Войти')}
-                </Button>
-            </div>
-        </DynamicModuleLoader>
-    );
-});
+                        {t('Войти')}
+                    </Button>
+                </div>
+            </DynamicModuleLoader>
+        );
+    },
+);
 
 export default LoginForm;

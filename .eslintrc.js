@@ -51,7 +51,7 @@ module.exports = {
         'arrow-parens': [2, 'as-needed'],
         'import/no-named-default': 0,
         'jsx-a11y/label-has-associated-control': 'off',
-        'react/prop-types': 'off',
+        // 'react/prop-types': 'off',
         'lines-between-class-members': 'off',
     },
     globals: {

@@ -65,7 +65,8 @@ describe('LoginForm', () => {
     });
 
     test('should handle successful login on button click', async () => {
-        componentRender(<LoginForm />);
+        const onSuccess = jest.fn();
+        componentRender(<LoginForm onSuccess={onSuccess} />);
 
         const user = { id: '1', username: 'Ivan' };
         mockedAxios.post.mockReturnValue(Promise.resolve({ data: user }));
