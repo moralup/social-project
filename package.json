@@ -27,6 +27,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@aws-sdk/client-lambda": "^3.598.0",
+    "@aws-sdk/util-utf8-node": "^3.259.0",
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
@@ -92,6 +94,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@loki/target-chrome-aws-lambda": "^0.35.0",
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^1.7.2",
     "i18next": "^21.6.11",
