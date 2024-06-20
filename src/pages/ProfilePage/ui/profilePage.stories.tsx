@@ -8,6 +8,18 @@ const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     decorators: [storeDecorator()],
+    parameters: {
+        mockData: [
+            {
+                url: 'http://localhost:8000/profile',
+                method: 'GET',
+                status: 200,
+                response: {
+                    data: 'Hello storybook-addon-mock!',
+                },
+            },
+        ],
+    },
 };
 
 export default meta;

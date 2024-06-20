@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './input.module.scss';
 
 export enum InputTheme {
+    NORMAL = 'normal',
     CLEAR = 'clear',
     OUTLINE = 'outline',
     BOTTOM_LINE = 'bottomLine',
@@ -23,7 +24,7 @@ interface InputProps extends HTMLInputProps {
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
-        theme = InputTheme.OUTLINE,
+        theme = InputTheme.NORMAL,
         type = 'text',
         caption,
         value,

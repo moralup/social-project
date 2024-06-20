@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
+    NORMAL = 'normal',
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
@@ -32,7 +33,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
         className,
         children,
         square,
-        theme = ButtonTheme.CLEAR,
+        theme = ButtonTheme.NORMAL,
         size = ButtonSize.M,
         disabled,
         ...otherProps
