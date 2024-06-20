@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useTheme } from 'app/providers/ThemeProvider';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
@@ -19,7 +19,7 @@ function App() {
     }, [dispatch]);
 
     useEffect(() => {
-        document.body.className = theme;
+        document.body.className = theme || Theme.DARK;
     }, [theme]);
 
     return (

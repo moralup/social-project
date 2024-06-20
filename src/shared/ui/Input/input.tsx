@@ -23,7 +23,7 @@ interface InputProps extends HTMLInputProps {
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
-        theme,
+        theme = InputTheme.OUTLINE,
         type = 'text',
         caption,
         value,

@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getIsLoading } from './getIsLoading';
 
@@ -13,6 +12,7 @@ describe('getIsLoading', () => {
     });
 
     test('should work with empty state', () => {
-        expect(getIsLoading(undefined)).toBe(false);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getIsLoading(state as StateSchema)).toBe(false);
     });
 });

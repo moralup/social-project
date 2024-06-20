@@ -4,6 +4,7 @@ import cls from './text.module.scss';
 
 export enum TextTheme {
     ERROR = 'error',
+    PRIMARY = 'primary',
 }
 
 interface TextProps {
@@ -16,7 +17,7 @@ interface TextProps {
 export const Text: FC<TextProps> = memo((props: TextProps) => {
     const {
         children,
-        theme,
+        theme = TextTheme.PRIMARY,
         className,
         title,
 

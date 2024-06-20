@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getUsername } from './getUsername';
 
@@ -14,6 +13,9 @@ describe('getUsername', () => {
     });
 
     test('should work with empty state', () => {
-        expect(getUsername(undefined)).toBe('');
+        const state: DeepPartial<StateSchema> = {
+            login: {},
+        };
+        expect(getUsername(state as StateSchema)).toBe('');
     });
 });

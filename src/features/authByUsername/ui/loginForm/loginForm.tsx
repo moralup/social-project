@@ -55,7 +55,7 @@ const LoginForm: FC<LoginFormProps> = memo<LoginFormProps>(
             const result = await dispatch(loginByUsername({ password, username }));
 
             if (result.meta.requestStatus === 'fulfilled') {
-                onSuccess();
+                onSuccess?.();
             }
         }, [dispatch, onSuccess, password, username]);
 

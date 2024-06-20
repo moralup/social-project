@@ -10,12 +10,12 @@ import './shared/config/i18n/i18n';
 import './app/styles/index.scss';
 
 render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ThemeProvider>
                 <App />
             </ThemeProvider>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
     document.getElementById('root'),
 );

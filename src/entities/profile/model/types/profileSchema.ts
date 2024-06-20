@@ -4,7 +4,7 @@ export enum CountryI {
     UKRAINE = 'Ukraine',
 }
 
-export interface Profile {
+export interface ProfileI {
     firstName: string;
     lastName: string;
     age: number;
@@ -15,7 +15,7 @@ export interface Profile {
 }
 
 export interface ProfileSchema {
-    data?: Profile;
+    data?: ProfileI;
     isLoading: boolean;
     error?: string;
     readonly?: boolean;

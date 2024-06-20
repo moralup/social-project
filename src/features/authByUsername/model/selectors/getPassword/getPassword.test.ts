@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getPassword } from './getPassword';
 
@@ -14,6 +13,7 @@ describe('getPassword', () => {
     });
 
     test('should work with empty state', () => {
-        expect(getPassword(undefined)).toBe('');
+        const state: DeepPartial<StateSchema> = {};
+        expect(getPassword(state as StateSchema)).toBe('');
     });
 });

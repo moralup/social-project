@@ -1,5 +1,5 @@
 import { screen, fireEvent, waitFor } from '@testing-library/react';
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { componentRender } from 'shared/lib/tests/componentRender';
 import { StateSchema } from 'app/providers/StoreProvider';

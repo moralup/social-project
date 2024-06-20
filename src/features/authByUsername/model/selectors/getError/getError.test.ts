@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getError } from './getError';
 
@@ -13,6 +12,7 @@ describe('getError', () => {
     });
 
     test('should work with empty state', () => {
-        expect(getError(undefined)).toBe(undefined);
+        const state: DeepPartial<StateSchema> = {};
+        expect(getError(state as StateSchema)).toBe(undefined);
     });
 });

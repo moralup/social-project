@@ -53,9 +53,11 @@ module.exports = {
         'jsx-a11y/label-has-associated-control': 'off',
         // 'react/prop-types': 'off',
         'lines-between-class-members': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [
         {

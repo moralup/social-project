@@ -1,5 +1,6 @@
 import type { AsyncThunk, Dispatch } from '@reduxjs/toolkit';
 import type { StateSchema } from 'app/providers/StoreProvider';
+import { ThunkExtraArg } from 'app/providers/StoreProvider/config/stateSchema';
 
 type ActionCreatorType<Returned, Arg, RejectValue> = AsyncThunk<
     Returned,
@@ -20,9 +21,9 @@ export class TestAsyncThunk<Returned, Arg, RejectValue> {
         this.getState = jest.fn();
     }
 
-    async callThunk(arg: Arg) {
+    async callThunk(arg: Arg, extra?: DeepPartial<ThunkExtraArg>) {
         const action = this.actionCreator(arg);
-        const result = await action(this.dispatch, this.getState, undefined);
+        const result = await action(this.dispatch, this.getState, extra);
         return result;
     }
 }
