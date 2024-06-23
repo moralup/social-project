@@ -1,0 +1,12 @@
+.profileCard {
+    width: 600px;
+}
+
+.avatarWrap {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    label {
+        flex-grow: 1;
+    }
+}

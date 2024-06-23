@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.btns {
+    display: flex;
+    width: 200px;
+    gap: 10px;
+    button {
+        flex-grow: 1;
+    }
+}

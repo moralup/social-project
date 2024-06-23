@@ -1,38 +1,37 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "json-server",
-            "userId": "1"
-        },
-        {
-            "id": "2",
-            "title": "json-server",
-            "userId": "2"
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "body": "some comment",
-            "postId": "1"
-        }
-    ],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": { 
-        "firstName": "Павший",
-        "lastName": "Воин",
-        "age": 23,
-        "country": "Russia",
-        "city": "Moscow",
-        "username": "moraldown",
-        "avatar": "https://sun9-41.userapi.com/impg/IIAl9iEQWXtn0EK4RxxYCEEG5Wwyyj9LS8MtSw/_OE5A5gIfXQ.jpg?size=1280x972&quality=96&sign=90818af4a69d9d5c7243bc169e55792e&c_uniq_tag=7OYtf2tHGKTwcB4rfJv3ZMsx0QgYAZX8m8WWAwSjXOI&type=album"
-
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstName": "Павший",
+    "lastName": "Воин",
+    "username": "moraldown",
+    "age": 19,
+    "country": "Russia",
+    "city": "Mariinsk",
+    "avatar": "https://sportishka.com/uploads/posts/2023-12/1701829791_sportishka-com-p-samurai-dzhip-krasivo-74.jpg"
+  }
 }

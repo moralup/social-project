@@ -17,7 +17,8 @@
 }
 
 .outline,
-.outlineInverted {
+.outlineInverted,
+.outlineWarn {
     padding: 8px 10px;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
@@ -26,6 +27,10 @@
     &Inverted {
         color: var(--inverted-primary-color);
         border-color: var(--inverted-primary-color);
+    }
+    &Warn {
+        color: var(--warn-primary-color);
+        border-color: var(--warn-primary-color);
     }
 }
 

@@ -1,0 +1,24 @@
+@mixin size($s) {
+    width: $s;
+    height: $s;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+.size-m {
+    @include size(20px)
+}
+
+.size-l {
+    @include size(70px)
+}
+
+.size-xl {
+    @include size(150px)
+}

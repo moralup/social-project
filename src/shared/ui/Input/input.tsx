@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './input.module.scss';
 
 export enum InputTheme {
-    NORMAL = 'normal',
+    NORMAL = '',
     CLEAR = 'clear',
     OUTLINE = 'outline',
     BOTTOM_LINE = 'bottomLine',
@@ -20,6 +20,7 @@ interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
@@ -30,7 +31,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         value,
         onChange,
         className,
-
+        readonly,
         ...otherProps
     } = props;
 
@@ -53,8 +54,9 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
                 type={type}
                 value={value}
                 onChange={onChangeHandler}
-                className={classNames(cls.input, {}, [cls[theme]])}
+                className={classNames(cls.input, { [cls.readonly]: readonly }, [cls[theme]])}
                 spellCheck={false}
+                readOnly={readonly}
                 {...otherProps}
             />
         </label>

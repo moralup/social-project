@@ -1,18 +1,20 @@
-import { CounterSchema } from 'entities/counter';
-import { UserSchema } from 'entities/user';
-import { LoginSchema } from 'features/authByUsername';
 import { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
-import { ProfileSchema } from 'entities/profile';
 import { AxiosInstance } from 'axios';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
+
+// *State Schemas
+import { CounterSchema } from 'entities/counter';
+import { UserSchema } from 'entities/user';
+import { LoginSchema } from 'features/authByUsername';
+import { ProfileSchema } from 'features/editableProfileCard/model/types/profileSchema';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
 
-    // Асинхронные редюсеры
+    // *Async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
 }
@@ -38,6 +40,7 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
     rejectValue: T;
     extra: ThunkExtraArg;
+    state: StateSchema;
 }
 
 // import {
