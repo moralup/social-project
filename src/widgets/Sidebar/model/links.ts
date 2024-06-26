@@ -9,6 +9,7 @@ export interface NavLinkI {
     Icon: VFC<SVGProps<SVGSVGElement>>;
     text: string;
     path: string;
+    authOnly?: boolean;
 }
 
 export const navLinkList: NavLinkI[] = [
@@ -26,5 +27,6 @@ export const navLinkList: NavLinkI[] = [
         Icon: ProfileIcon,
         text: 'Профиль',
         path: RoutePath.profile,
+        authOnly: true,
     },
 ];
