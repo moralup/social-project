@@ -18,6 +18,14 @@ const meta: Meta<typeof ProfilePage> = {
                     data: 'Hello storybook-addon-mock!',
                 },
             },
+            {
+                url: 'http://localhost:8000/profile',
+                method: 'PUT',
+                status: 200,
+                response: {
+                    data: 'Hello storybook-addon-mock!',
+                },
+            },
         ],
     },
 };

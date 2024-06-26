@@ -2,81 +2,66 @@ import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
 
+// !libs
+import { MAX_AGE } from 'shared/consts/age';
+import { titleCase } from 'shared/lib/titleCase/titleCase';
 import { classNames } from 'shared/lib/classNames/classNames';
 
+// !components
 import { ProfileCard } from 'entities/profile';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Text } from 'shared/ui/Text';
 import { Header } from '../header/header';
+import { Loader } from 'shared/ui/Loader/Loader';
 
-import { updateProfile, cancelEdit, setReadonly } from '../../model/slice/editableProfileCardSlice';
+// !action-creators
+import {
+    updateProfile,
+    cancelEditForm,
+    editForm,
+} from '../../model/slice/editableProfileCardSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
-import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+// !selectors
+import { getProfileForm } from '../../model/selectors/getProfileForm';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
+import { getProfileData } from '../../model/selectors/getProfileData';
 
 import cls from './editableProfileCard.module.scss';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { Errors } from '../errors/errors';
 
-interface EditableProfileCardProps {
-    className?: string;
-}
-
-export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className }) => {
+export const EditableProfileCard: FC = () => {
     const dispatch = useTypedDispatch();
-    const profileData = useSelector(getProfileForm);
+
     const { avatar: currentAvatar } = useSelector(getProfileData);
+    const profileData = useSelector(getProfileForm);
     const readonly = useSelector(getProfileReadonly);
     const isLoading = useSelector(getProfileIsLoading);
-    const error = useSelector(getProfileError);
 
     const onEdit = () => {
-        dispatch(setReadonly(false));
+        dispatch(editForm());
     };
+
     const onCancelEdit = () => {
-        dispatch(cancelEdit());
+        dispatch(cancelEditForm());
     };
     const onSave = () => {
         dispatch(updateProfileData());
     };
+
     const onChangeFirstName = useCallback(
         (value: string) => {
-            dispatch(updateProfile({ firstName: value }));
+            dispatch(updateProfile({ firstName: titleCase(value) }));
         },
         [dispatch],
     );
-    const onChangeAvatar = useCallback(
-        (value: string) => {
-            dispatch(updateProfile({ avatar: value }));
-        },
-        [dispatch],
-    );
+
     const onChangeLastName = useCallback(
         (value: string) => {
-            dispatch(updateProfile({ lastName: value }));
+            dispatch(updateProfile({ lastName: titleCase(value) }));
         },
         [dispatch],
     );
-    const onChangeAge = useCallback(
-        (value: string) => {
-            dispatch(updateProfile({ age: Number(value) }));
-        },
-        [dispatch],
-    );
-    const onChangeCountry = useCallback(
-        (value: string) => {
-            dispatch(updateProfile({ country: value }));
-        },
-        [dispatch],
-    );
-    const onChangeCity = useCallback(
-        (value: string) => {
-            dispatch(updateProfile({ city: value }));
-        },
-        [dispatch],
-    );
+
     const onChangeUsername = useCallback(
         (value: string) => {
             dispatch(updateProfile({ username: value }));
@@ -84,25 +69,49 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ className })
         [dispatch],
     );
 
+    const onChangeAge = useCallback(
+        (value: string) => {
+            const valueNumber = Number(value);
+
+            if (!isNaN(valueNumber) && valueNumber < MAX_AGE) {
+                dispatch(updateProfile({ age: valueNumber }));
+            }
+        },
+        [dispatch],
+    );
+
+    const onChangeAvatar = useCallback(
+        (value: string) => {
+            dispatch(updateProfile({ avatar: value }));
+        },
+        [dispatch],
+    );
+
+    const onChangeCountry = useCallback(
+        (value: string) => {
+            dispatch(updateProfile({ country: titleCase(value) }));
+        },
+        [dispatch],
+    );
+
+    const onChangeCity = useCallback(
+        (value: string) => {
+            dispatch(updateProfile({ city: titleCase(value) }));
+        },
+        [dispatch],
+    );
+
     if (isLoading) {
         return (
-            <div className="">
+            <div>
                 <Loader />
             </div>
         );
     }
 
-    if (error) {
-        return (
-            <div className="">
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                <Text title="ERROR">some error</Text>
-            </div>
-        );
-    }
-
     return (
-        <div className={classNames(cls.editableProfileCard, {}, [className])}>
+        <div className={classNames(cls.editableProfileCard, {}, [])}>
+            <Errors />
             <Header
                 readonly={readonly}
                 onCancelEdit={onCancelEdit}

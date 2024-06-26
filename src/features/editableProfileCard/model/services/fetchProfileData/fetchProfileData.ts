@@ -1,17 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { ProfileI } from 'shared/types/profile';
+import { ValidateProfileError } from '../../types/profileSchema';
 
-export const fetchProfileData = createAsyncThunk<ProfileI, void, ThunkConfig<string>>(
-    'profile/fetchProfileData',
-    async (_, { extra, rejectWithValue }) => {
-        try {
-            const response = await extra.api.get<ProfileI>('/profile');
+export const fetchProfileData = createAsyncThunk<
+    ProfileI,
+    void,
+    ThunkConfig<ValidateProfileError[]>
+>('profile/fetchProfileData', async (_, { extra, rejectWithValue }) => {
+    try {
+        const response = await extra.api.get<ProfileI>('/profile');
 
-            return response.data;
-        } catch (e) {
-            console.log(e);
-            return rejectWithValue('error');
+        if (!response.data) {
+            throw new Error();
         }
-    },
-);
+
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+    }
+});
