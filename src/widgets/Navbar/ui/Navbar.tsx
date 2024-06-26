@@ -23,7 +23,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const onCloseModal = useCallback(() => setIsAuthModal(false), []);
     const onLogin = useCallback(() => setIsAuthModal(true), []);
     const onLogout = useCallback(() => dispatch(logout()), [dispatch]);
-    console.log('isAuthModal', isAuthModal);
+
     if (authData) {
         return (
             <div className={classNames(cls.Navbar, {}, [className])}>

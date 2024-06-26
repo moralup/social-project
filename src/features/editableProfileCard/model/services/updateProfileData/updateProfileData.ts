@@ -16,7 +16,7 @@ export const updateProfileData = createAsyncThunk<
 
         try {
             const errors = validateProfileData(formData);
-            console.log('errors, formData', errors, formData);
+
             if (errors.length) {
                 return rejectWithValue(errors);
             }
@@ -25,6 +25,7 @@ export const updateProfileData = createAsyncThunk<
 
             return response.data;
         } catch (e) {
+            // eslint-disable-next-line no-console
             console.log(e);
             return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }

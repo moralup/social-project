@@ -37,6 +37,7 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
             alt={alt}
             src={src}
             className={classNames(cls.avatar, {}, [className, cls[theme], cls[size]])}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         />
     );

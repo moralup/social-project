@@ -27,6 +27,7 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
     return (
         <div
             className={classNames(cls.textWrapper, {}, [className, cls[theme]])}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
             {title && <h3 className={cls.title}>{title}</h3>}
