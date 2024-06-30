@@ -9,6 +9,7 @@ import { CounterSchema } from 'entities/counter';
 import { UserSchema } from 'entities/user';
 import { LoginSchema } from 'features/authByUsername';
 import { ProfileSchema } from 'features/editableProfileCard/model/types/profileSchema';
+import { ArticleDetailsSchema } from 'entities/article';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -17,6 +18,7 @@ export interface StateSchema {
     // *Async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

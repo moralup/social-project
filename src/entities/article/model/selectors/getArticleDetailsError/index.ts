@@ -1,0 +1,1 @@
+export { getArticleDetailsError } from './getArticleDetailsError';

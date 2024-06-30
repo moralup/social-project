@@ -57,6 +57,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
                 className={classNames(cls.input, { [cls.readonly]: readonly }, [cls[theme]])}
                 spellCheck={false}
                 readOnly={readonly}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             />
         </label>

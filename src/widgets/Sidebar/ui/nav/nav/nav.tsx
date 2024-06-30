@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import { NavLinkI, navLinkList } from '../../../model/links';
 import { NavLink } from '../navLink/navLink';
 import cls from './nav.module.scss';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/user';
+import { navLinkList, NavLinkI } from 'shared/config/routeConfig/routeConfig';
 
 interface NavProps {
     collapsed: boolean;

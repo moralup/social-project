@@ -1,0 +1,18 @@
+.avatar {
+    margin: auto;
+    display: block;
+}
+
+.block {
+    margin-bottom: 30px;
+}
+
+.articleDetailsInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+        fill: var(--secondary-color);
+    }
+}

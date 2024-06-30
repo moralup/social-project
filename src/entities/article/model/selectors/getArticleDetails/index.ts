@@ -1,0 +1,1 @@
+export { getArticleDetails } from './getArticleDetails';

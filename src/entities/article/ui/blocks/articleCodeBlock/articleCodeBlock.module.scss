@@ -1,0 +1,17 @@
+.articleCodeBlock {
+    background: var(--code-bg-color);
+    padding: 20px;
+    border: 2px solid black;
+    overflow: auto;
+    position: relative;
+}
+
+.copyBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    path {
+        stroke: var(--primary-color);
+    }
+}

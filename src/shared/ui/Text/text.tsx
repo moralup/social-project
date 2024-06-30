@@ -7,10 +7,17 @@ export enum TextTheme {
     PRIMARY = 'primary',
 }
 
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
+}
+
 interface TextProps {
     children?: string;
     title?: string;
     theme?: TextTheme;
+    size?: TextSize;
     className?: string;
 }
 
@@ -18,15 +25,18 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
     const {
         children,
         theme = TextTheme.PRIMARY,
+        size = TextSize.M,
         className,
         title,
 
         ...otherProps
     } = props;
 
+    const additional = [className, cls[theme], cls[size]];
+
     return (
         <div
-            className={classNames(cls.textWrapper, {}, [className, cls[theme]])}
+            className={classNames(cls.textWrapper, {}, additional)}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >

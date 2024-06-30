@@ -20,4 +20,7 @@ body {
     padding: 20px;
     background: var(--bg-color);
     color: var(--primary-color);
+    width: calc(100% - var(--sidebar-width));
+    height: calc(100vh - var(--navbar-height));
+    overflow: auto;
 }
