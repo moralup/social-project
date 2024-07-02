@@ -1,32 +1,49 @@
-import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './articleDetailsPage.module.scss';
+import { FC, memo, useEffect } from 'react';
 import { ArticleDetails } from 'entities/article';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { CommentList } from 'entities/comment';
+import { Text } from 'shared/ui/Text';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/dynamicModuleLoader';
+import {
+    articleDetailsCommentsReducer,
+    getArticleComments,
+} from '../model/slice/articleDetailsCommentsSlice/articleDetailsCommentsSlice';
+import { useSelector } from 'react-redux';
+import { getIsLoading } from '../model/selectors/getIsLoading';
+import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 
-interface ArticleDetailsPageProps {
-    className?: string;
-}
+interface ArticleDetailsPageProps {}
 
-const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
+const reducers: ReducersList = {
+    articleDetailsComments: articleDetailsCommentsReducer,
+};
+
+const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
     const { id } = useParams<{ id: string }>();
-    const { t } = useTranslation();
+    const dispatch = useTypedDispatch();
 
-    if (!id) {
-        return (
-            <div
-                className={classNames(cls.articleDetailsPage, {}, [className])}
-            >
-                {t('Статья не найдена')}
-            </div>
-        );
-    }
+    const comments = useSelector(getArticleComments.selectAll);
+    const isLoading = useSelector(getIsLoading);
+
+    useEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+    }, [dispatch, id]);
 
     return (
-        <div className={classNames(cls.articleDetailsPage, {}, [className])}>
-            <ArticleDetails articleId={id} />
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <div>
+                <ArticleDetails articleId={id} />
+                <Text title="Комментарии" />
+                <CommentList
+                    isLoading={isLoading}
+                    comments={comments}
+                />
+            </div>
+        </DynamicModuleLoader>
     );
 };
 

@@ -1,10 +1,11 @@
-export interface User {
+export interface UserI {
     id: string;
     username: string;
+    avatar?: string;
 }
 
 export interface UserSchema {
-    authData?: User;
+    authData?: UserI;
 
     _inited: boolean;
 }

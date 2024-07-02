@@ -11,7 +11,15 @@ interface SkeletonProps {
 }
 
 export const Skeleton: FC<SkeletonProps> = props => {
-    const { className, width, height, radius, isCircle } = props;
+    const {
+        className,
+        width,
+        height,
+        radius,
+        isCircle,
+
+        ...otherProps
+    } = props;
 
     const style: CSSProperties = {
         width: width || height,
@@ -23,6 +31,8 @@ export const Skeleton: FC<SkeletonProps> = props => {
         <div
             style={style}
             className={classNames(cls.skeleton, {}, [className])}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...otherProps}
         />
     );
 };

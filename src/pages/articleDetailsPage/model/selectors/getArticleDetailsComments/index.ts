@@ -1,0 +1,1 @@
+export { getArticleDetailsComments } from './getArticleDetailsComments';

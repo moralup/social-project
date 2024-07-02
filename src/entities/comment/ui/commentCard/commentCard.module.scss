@@ -1,0 +1,13 @@
+.commentCard {
+    padding: 15px;
+    border: 2px solid black;
+    background: var(--inverted-primary-color);
+    margin-bottom: 10px;
+}
+
+.user {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}
