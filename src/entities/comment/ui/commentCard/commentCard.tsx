@@ -8,6 +8,8 @@ import { Text } from 'shared/ui/Text';
 import { Skeleton } from 'shared/ui/skeleton/skeleton';
 
 import cls from './commentCard.module.scss';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface CommentCardProps {
     className?: string;
@@ -18,7 +20,7 @@ interface CommentCardProps {
 export const CommentCard: FC<CommentCardProps> = props => {
     const { className, comment, isLoading } = props;
     const { text, user } = comment;
-    const { username, avatar } = user;
+    const { username, avatar, id } = user;
 
     if (isLoading) {
         return (
@@ -52,7 +54,10 @@ export const CommentCard: FC<CommentCardProps> = props => {
             data-testid="commentCard"
             className={classNames(cls.commentCard, {}, [className])}
         >
-            <div className={cls.user}>
+            <AppLink
+                to={`${RoutePath.profile}/${id}`}
+                className={cls.user}
+            >
                 {avatar && (
                     <Avatar
                         data-testid="avatar"
@@ -61,7 +66,7 @@ export const CommentCard: FC<CommentCardProps> = props => {
                     />
                 )}
                 <Text title={username} />
-            </div>
+            </AppLink>
             <Text>{text}</Text>
         </div>
     );

@@ -1,0 +1,1 @@
+export { getIsCanEdit } from './getIsCanEdit';

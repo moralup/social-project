@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { CommentCard } from './commentCard';
+import { componentRender } from 'shared/lib/tests/componentRender';
 
 describe('Component CommentCard', () => {
     test('without avatar, tag img should do not render', () => {
-        render(
+        componentRender(
             <CommentCard
                 comment={{
                     id: '1',
@@ -17,7 +18,7 @@ describe('Component CommentCard', () => {
     });
 
     test('with avatar, tag img should do render', () => {
-        render(
+        componentRender(
             <CommentCard
                 comment={{
                     id: '1',
@@ -35,7 +36,7 @@ describe('Component CommentCard', () => {
     });
 
     test('with isLoading true, should render skeleton, and skeleton should have a true size', () => {
-        render(
+        componentRender(
             <CommentCard
                 isLoading
                 comment={{ id: 'f', text: '', user: { id: '', username: '' } }}

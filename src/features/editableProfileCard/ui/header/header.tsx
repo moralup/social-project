@@ -6,6 +6,8 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text';
 
 import cls from './header.module.scss';
+import { useSelector } from 'react-redux';
+import { getIsCanEdit } from 'features/editableProfileCard/model/selectors/getIsCanEdit';
 
 interface HeaderProps {
     className?: string;
@@ -24,22 +26,23 @@ export const Header: FC<HeaderProps> = props => {
         onEdit,
         onSave,
     } = props;
+
     const { t } = useTranslation('profile');
+    const isCanEdit = useSelector(getIsCanEdit);
 
     return (
         <div className={classNames(cls.header, {}, [className])}>
             <Text title={t('Профиль')} />
-            <div className={cls.btns}>
-                {readonly
-                    ? (
+            {isCanEdit && (
+                <div className={cls.btns}>
+                    {readonly ? (
                         <Button
                             onClick={onEdit}
                             theme={ButtonTheme.OUTLINE}
                         >
                             {t('редактировать')}
                         </Button>
-                    )
-                    : (
+                    ) : (
                         <>
                             <Button
                                 onClick={onSave}
@@ -55,7 +58,8 @@ export const Header: FC<HeaderProps> = props => {
                             </Button>
                         </>
                     )}
-            </div>
+                </div>
+            )}
         </div>
     );
 };

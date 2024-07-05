@@ -1,0 +1,1 @@
+export { getNavLinkList } from './getNavLinkList';

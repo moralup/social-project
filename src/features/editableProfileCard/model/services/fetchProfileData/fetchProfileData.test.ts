@@ -20,7 +20,7 @@ describe('fetchProfileData', () => {
 
         mockedAxios.get.mockResolvedValue({ data: profile });
 
-        const result = await thunk.callThunk(undefined, { api: $api });
+        const result = await thunk.callThunk('1', { api: $api });
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(mockedAxios.get).toHaveBeenCalled();
@@ -31,7 +31,7 @@ describe('fetchProfileData', () => {
     test('error login', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
