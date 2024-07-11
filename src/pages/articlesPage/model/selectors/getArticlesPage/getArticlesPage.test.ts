@@ -5,6 +5,6 @@ describe('getArticlesPage', () => {
     test('should return articlesPage', () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getArticlesPage(state as StateSchema)).toEqual({});
+        expect(getArticlesPage(state as StateSchema)).toEqual(undefined);
     });
 });

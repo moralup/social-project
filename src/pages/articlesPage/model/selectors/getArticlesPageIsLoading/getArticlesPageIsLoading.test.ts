@@ -5,6 +5,6 @@ describe('getArticlesPageIsLoading', () => {
     test('should return articlesPageIsLoading', () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getArticlesPageIsLoading(state as StateSchema)).toEqual({});
+        expect(getArticlesPageIsLoading(state as StateSchema)).toEqual(undefined);
     });
 });
