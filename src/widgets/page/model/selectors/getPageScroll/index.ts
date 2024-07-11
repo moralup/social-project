@@ -1,0 +1,1 @@
+export { getPageScroll } from './getPageScroll';

@@ -1,0 +1,1 @@
+export { getArticlesPageHasMore } from './getArticlesPageHasMore';

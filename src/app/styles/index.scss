@@ -1,7 +1,7 @@
-@import "reset";
-@import "variables/global";
-@import "themes/light";
-@import "themes/dark";
+@import 'reset';
+@import 'variables/global';
+@import 'themes/light';
+@import 'themes/dark';
 
 .app,
 body {
@@ -13,14 +13,4 @@ body {
 
 .content-page {
     display: flex;
-}
-
-.page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
-    background: var(--bg-color);
-    color: var(--primary-color);
-    width: calc(100% - var(--sidebar-width));
-    height: calc(100vh - var(--navbar-height));
-    overflow: auto;
 }

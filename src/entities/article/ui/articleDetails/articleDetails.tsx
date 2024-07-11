@@ -11,8 +11,14 @@ import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsE
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData';
 
 import { Text, TextTheme } from 'shared/ui/Text';
-import { ArticleSkeleton } from '../articleSkeleton/articleSkeleton';
-import { ArticleDetailsContent } from '../articleDetailsContent/articleDetailsContent';
+import {
+    //
+    ArticleDetailsSkeleton,
+} from '../articleSkeletons/articleDetailsSkeleton/articleDetailsSkeleton';
+import { ArticleDetailsContent } from './articleDetailsContent';
+import { useTranslation } from 'react-i18next';
+import { Button } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 interface ArticleDetailsProps {
     articleId?: string;
@@ -22,32 +28,38 @@ const reducers = {
     articleDetails: articleDetailsReducer,
 };
 
+const useArticleDetailsContent = () => {
+    const data = useSelector(getArticleDetailsData);
+    const isLoading = useSelector(getArticleDetailsIsLoading);
+    const error = useSelector(getArticleDetailsError);
+
+    // prettier-ignore
+    switch (true) {
+    case isLoading:
+        return <ArticleDetailsSkeleton />;
+    case Boolean(error):
+        return (
+            <Text
+                title="Error"
+                theme={TextTheme.ERROR}
+            />
+        );
+    case Boolean(data):
+        return <ArticleDetailsContent data={data!} />;
+    default:
+        return null;
+    }
+};
+
 export const ArticleDetails: FC<ArticleDetailsProps> = memo(
     ({ articleId }: ArticleDetailsProps) => {
         const dispatch = useTypedDispatch();
-
-        const data = useSelector(getArticleDetailsData);
-        const isLoading = useSelector(getArticleDetailsIsLoading);
-        const error = useSelector(getArticleDetailsError);
-
-        let content;
-
-        switch (true) {
-        case isLoading:
-            content = <ArticleSkeleton />;
-            break;
-
-        case Boolean(error):
-            content = <Text title="Error" theme={TextTheme.ERROR} />;
-            break;
-
-        case Boolean(data):
-            content = <ArticleDetailsContent data={data!} />;
-            break;
-
-        default:
-            content = null;
-        }
+        const content = useArticleDetailsContent();
+        const { t } = useTranslation();
+        const navigate = useNavigate();
+        const onGoBack = () => {
+            navigate(-1);
+        };
 
         useEffect(() => {
             if (articleId) {
@@ -56,10 +68,13 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
         }, [dispatch, articleId]);
 
         return (
-            <DynamicModuleLoader reducers={reducers}>
-                <div>
-                    {content}
-                </div>
+            <DynamicModuleLoader
+                reducers={reducers}
+            >
+                <>
+                    <Button onClick={onGoBack}>{t('Вернуться назад')}</Button>
+                    <div>{content}</div>
+                </>
             </DynamicModuleLoader>
         );
     },

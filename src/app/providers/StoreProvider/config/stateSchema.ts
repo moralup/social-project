@@ -6,8 +6,6 @@ import {
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 
 // *State Schemas
 import { CounterSchema } from 'entities/counter';
@@ -15,19 +13,25 @@ import { UserSchema } from 'entities/user';
 import { LoginSchema } from 'features/authByUsername';
 import { ProfileSchema } from 'features/editableProfileCard/model/types/profileSchema';
 import { ArticleDetailsSchema } from 'entities/article';
-import { ArticleDetailsCommentsSchema } from 'pages/articleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/articleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from 'pages/articlesPage';
+import { PageSchema } from 'widgets/page';
+import { ArticlesPageFiltersSchema } from 'features/articlesPageFilters';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    page: PageSchema;
 
     // *Async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlesPageSchema;
+    articlesPageFilters?: ArticlesPageFiltersSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -38,7 +42,7 @@ export interface ReducerManager {
         state: StateSchema,
         action: AnyAction,
     ) => CombinedState<StateSchema>;
-    add: (key: StateSchemaKey, reducer: Reducer) => void;
+    add: (key: StateSchemaKey, reducer: Reducer) => boolean;
     remove: (key: StateSchemaKey) => void;
 }
 
@@ -48,7 +52,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

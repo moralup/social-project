@@ -1,3 +1,7 @@
-export {
-    ArticlesPageAsync as ArticlesPage,
-} from './ui/articlesPage.async';
+export { resetPage } from './model/slices/articlesPageSlice';
+
+export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArticlesList';
+
+export { ArticlesPageAsync as ArticlesPage } from './ui/articlesPage/articlesPage.async';
+
+export { ArticlesPageSchema } from './model/types/articlesPageSchema';

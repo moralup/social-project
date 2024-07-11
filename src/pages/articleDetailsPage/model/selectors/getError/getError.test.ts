@@ -3,7 +3,7 @@ import { getError } from './getError';
 
 describe('getError', () => {
     test('with full state should return error', () => {
-        const articleDetailsComments = {
+        const comments = {
             error: 'some error',
             isLoading: false,
             entities: {},
@@ -11,7 +11,9 @@ describe('getError', () => {
         };
 
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments,
+            articleDetailsPage: {
+                comments,
+            },
         };
 
         expect(getError(state as StateSchema)).toBe('some error');

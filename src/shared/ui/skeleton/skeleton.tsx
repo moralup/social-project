@@ -6,7 +6,11 @@ interface SkeletonProps {
     className?: string;
     width?: number | string;
     height?: number | string;
+
+    // Sets the border-radius
     radius?: number;
+
+    // Sets the border-radius 50%, but not priory than radius
     isCircle?: boolean;
 }
 
@@ -22,8 +26,8 @@ export const Skeleton: FC<SkeletonProps> = props => {
     } = props;
 
     const style: CSSProperties = {
-        width: width || height,
-        height: height || width,
+        width: width || (isCircle && height) || undefined,
+        height: height || (isCircle && width) || undefined,
         borderRadius: radius || (isCircle && '50%') || 0,
     };
 

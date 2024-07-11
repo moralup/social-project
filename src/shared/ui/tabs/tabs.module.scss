@@ -1,0 +1,15 @@
+.tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab {
+    background: var(--inverted-bg-color);
+    padding: 10px 15px;
+    border-radius: 12px;
+
+    &:not(.active) {
+        opacity: .5;
+    }
+}

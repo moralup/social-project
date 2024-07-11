@@ -1,0 +1,25 @@
+.articleListItemSkeleton {
+    width: 100%;
+}
+
+.header,
+.footer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title,
+.types,
+.text {
+    margin-bottom: 10px;
+}
+
+.username {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+.readMoreBtn {
+    margin-right: auto;
+}

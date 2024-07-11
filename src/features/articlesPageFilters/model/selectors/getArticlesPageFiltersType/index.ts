@@ -1,0 +1,1 @@
+export { getArticlesPageFiltersType } from './getArticlesPageFiltersType';

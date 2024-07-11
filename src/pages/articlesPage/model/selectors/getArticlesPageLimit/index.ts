@@ -1,0 +1,1 @@
+export { getArticlesPageLimit } from './getArticlesPageLimit';

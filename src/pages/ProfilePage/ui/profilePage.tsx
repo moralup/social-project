@@ -1,8 +1,13 @@
-import { EditableProfileCard } from 'features/editableProfileCard';
 import { memo } from 'react';
+import { EditableProfileCard } from 'features/editableProfileCard';
+import { Page } from 'widgets/page';
 
 const ProfilePage = memo(() => {
-    return <EditableProfileCard />;
+    return (
+        <Page>
+            <EditableProfileCard />
+        </Page>
+    );
 });
 
 export default ProfilePage;

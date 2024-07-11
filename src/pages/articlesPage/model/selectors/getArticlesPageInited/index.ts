@@ -1,0 +1,1 @@
+export { getArticlesPageInited } from './getArticlesPageInited';

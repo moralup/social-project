@@ -1,0 +1,14 @@
+.select {
+    color: var(--primary-color);
+    outline: none;
+    border: 2px var(--secondary-color) solid;
+    background: var(--bg-color);
+
+    .option {
+        background: var(--bg-color);
+    }
+}
+
+.label {
+    margin-right: 10px;
+}

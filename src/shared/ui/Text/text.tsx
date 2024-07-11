@@ -18,6 +18,7 @@ interface TextProps {
     title?: string;
     theme?: TextTheme;
     size?: TextSize;
+    isInlineTitle?: boolean;
     className?: string;
 }
 
@@ -28,19 +29,26 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
         size = TextSize.M,
         className,
         title,
-
+        isInlineTitle,
         ...otherProps
     } = props;
 
     const additional = [className, cls[theme], cls[size]];
-
+    const titleStyle = isInlineTitle ? { display: 'inline' } : {};
     return (
         <div
             className={classNames(cls.textWrapper, {}, additional)}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
-            {title && <h3 className={cls.title}>{title}</h3>}
+            {title && (
+                <h3
+                    style={titleStyle}
+                    className={cls.title}
+                >
+                    {title}
+                </h3>
+            )}
             {children && <span className={cls.text}>{children}</span>}
         </div>
     );

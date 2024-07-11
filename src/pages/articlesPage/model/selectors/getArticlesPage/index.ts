@@ -1,0 +1,1 @@
+export { getArticlesPage } from './getArticlesPage';

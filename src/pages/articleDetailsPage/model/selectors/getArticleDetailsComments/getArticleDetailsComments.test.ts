@@ -3,7 +3,7 @@ import { getArticleDetailsComments } from './getArticleDetailsComments';
 
 describe('getArticleDetailsComments', () => {
     test('with full state should return articleDetailsComments', () => {
-        const articleDetailsComments = {
+        const comments = {
             error: 'some error',
             isLoading: false,
             entities: {},
@@ -11,11 +11,13 @@ describe('getArticleDetailsComments', () => {
         };
 
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments,
+            articleDetailsPage: {
+                comments,
+            },
         };
 
         expect(getArticleDetailsComments(state as StateSchema)).toEqual({
-            ...articleDetailsComments,
+            ...comments,
         });
     });
 

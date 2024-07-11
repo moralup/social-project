@@ -1,0 +1,1 @@
+export { getGetArticlesPagePaginationPage } from './getGetArticlesPagePaginationPage';

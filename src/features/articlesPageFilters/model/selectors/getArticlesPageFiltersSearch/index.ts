@@ -1,0 +1,1 @@
+export { getArticlesPageFiltersSearch } from './getArticlesPageFiltersSearch';

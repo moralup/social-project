@@ -3,7 +3,7 @@ import { getIsLoading } from './getIsLoading';
 
 describe('getIsLoading', () => {
     test('with full state should return error', () => {
-        const articleDetailsComments = {
+        const comments = {
             error: 'some error',
             isLoading: false,
             entities: {},
@@ -11,7 +11,9 @@ describe('getIsLoading', () => {
         };
 
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments,
+            articleDetailsPage: {
+                comments,
+            },
         };
 
         expect(getIsLoading(state as StateSchema)).toBe(false);
