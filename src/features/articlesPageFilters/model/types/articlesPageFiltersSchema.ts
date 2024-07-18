@@ -6,6 +6,7 @@ export enum ArticleSortFiled {
     TITLE = 'title',
     CREATED = 'createdAt',
 }
+
 export interface ArticlesPageFiltersSchema {
     order: 'asc' | 'desc';
     sort: ArticleSortFiled;

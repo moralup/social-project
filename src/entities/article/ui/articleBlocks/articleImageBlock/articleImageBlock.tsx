@@ -15,13 +15,16 @@ export const ArticleImageBlock: FC<ArticleImageBlockProps> = props => {
     const { src, title } = block;
 
     return (
-        <div className={className}>
+        <div
+            data-testid="articleImageBlock"
+            className={className}
+        >
             <img
                 src={src}
                 alt={title}
                 className={cls.image}
             />
-            {title && <Text>{title}</Text>}
+            {title && <Text data-testid="articleImageBlockTitle">{title}</Text>}
         </div>
     );
 };

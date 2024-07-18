@@ -16,6 +16,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemProps> = props => {
 
     return (
         <Skeleton
+            data-testid="articleListItemCompactSkeleton"
             height={280}
             width={220}
             radius={12}

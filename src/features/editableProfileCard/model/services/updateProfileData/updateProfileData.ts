@@ -3,7 +3,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { ProfileI } from 'shared/types/profile';
 import { getProfileForm } from '../../selectors/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
-import { ValidateProfileError } from '../../types/profileSchema';
+import { ValidateProfileError } from '../../consts/consts';
 
 export const updateProfileData = createAsyncThunk<
     ProfileI,
@@ -24,7 +24,6 @@ export const updateProfileData = createAsyncThunk<
                 `/profile/${formData.id}`,
                 formData,
             );
-
             return response.data;
         } catch (e) {
             // eslint-disable-next-line no-console

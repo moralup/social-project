@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import { useSelector } from 'react-redux';
+import { FC, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useChangeArticlesPageFilters } from '../../model/hooks/useChangeArticlesPageFilters';
 
@@ -7,6 +8,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/dynamicModuleLoader';
+import { initArticlesPageFilters } from '../../model/services/initArticlesPage/initArticlesPage';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 // Enums
@@ -83,6 +85,8 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = ({
     className,
 }) => {
     const { t } = useTranslation();
+    const [searchParams] = useSearchParams();
+    const dispatch = useDispatch();
 
     const articleView = useSelector(getArticlesPageFiltersView);
     const search = useSelector(getArticlesPageFiltersSearch);
@@ -95,6 +99,10 @@ export const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = ({
     const onChangeOrder = useChangeArticlesPageFilters(setOrder);
     const onChangeType = useChangeArticlesPageFilters(setType);
     const onInputSearch = useChangeArticlesPageFilters(setSearch, true);
+
+    useEffect(() => {
+        dispatch(initArticlesPageFilters(searchParams));
+    }, [dispatch, searchParams]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>

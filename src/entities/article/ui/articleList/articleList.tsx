@@ -10,25 +10,25 @@ interface ArticleListProps {
     articles: ArticleI[];
     isLoading?: boolean;
     view: ArticleView;
-    target?: '_blank'
+    target?: '_blank';
 }
+
+const getSkeletons = (view: ArticleView) => {
+    // prettier-ignore
+    const mockArticles = view === ArticleView.COMPACT
+        ? Array(12).fill(0)
+        : Array(6).fill(0);
+
+    return mockArticles.map((_: any, i) => (
+        <ArticleListItemSkeleton
+            key={i}
+            view={view}
+        />
+    ));
+};
 
 export const ArticleList: FC<ArticleListProps> = props => {
     const { className, articles, isLoading, view, target } = props;
-
-    const getSkeletons = () => {
-        // prettier-ignore
-        const mockArticles = view === ArticleView.COMPACT
-            ? Array(12).fill(0)
-            : Array(6).fill(0);
-
-        return mockArticles.map((_: any, i) => (
-            <ArticleListItemSkeleton
-                key={i}
-                view={view}
-            />
-        ));
-    };
 
     return (
         <div className={classNames(cls.articleList, {}, [className])}>
@@ -40,7 +40,7 @@ export const ArticleList: FC<ArticleListProps> = props => {
                     target={target}
                 />
             ))}
-            {isLoading && getSkeletons()}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 };

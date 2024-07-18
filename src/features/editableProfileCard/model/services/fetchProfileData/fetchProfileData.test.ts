@@ -2,7 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk';
 import { $api } from 'shared/api/api';
 import { ProfileI } from 'shared/types/profile';
 import { fetchProfileData } from './fetchProfileData';
-import { ValidateProfileError } from '../../types/profileSchema';
+import { ValidateProfileError } from '../../consts/consts';
 
 jest.mock('shared/api/api');
 const mockedAxios = jest.mocked($api, true);

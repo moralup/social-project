@@ -6,9 +6,15 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlesPage } from 'pages/articlesPage';
 import { ArticleDetailsPage } from 'pages/articleDetailsPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { ArticleEditPage } from 'pages/articleEditPage';
+import { ArticleCreatePage } from 'pages/articleCreatePage';
+import { ForbiddenPage } from 'pages/forbiddenPage';
+import { UserRoleI } from 'entities/user/model/types/user';
+import AdminPage from 'pages/adminPage/ui/adminPage';
 
 export interface AppRouteProps extends RouteProps {
     authOnly?: boolean;
+    roles?: UserRoleI[];
 }
 
 export enum AppRoutes {
@@ -17,7 +23,11 @@ export enum AppRoutes {
     PROFILE = 'profile',
     ARTICLES = 'articles',
     ARTICLE_DETAILS = 'articles_details',
-    // *last
+    ARTICLE_EDIT = 'articles_edit',
+    ARTICLE_CREATE = 'articles_create',
+    FORBIDDEN = 'forbidden',
+    ADMIN = 'admin',
+
     NOT_FOUND = 'not_found',
 }
 
@@ -26,9 +36,12 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.PROFILE]: '/profile', // :id
     [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLE_DETAILS]: '/articles', // :id
+    [AppRoutes.ARTICLE_DETAILS]: '/articles',
+    [AppRoutes.ARTICLE_CREATE]: '/articles/new',
+    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
+    [AppRoutes.ADMIN]: '/admin',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
 
-    // *last
     [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -56,8 +69,27 @@ export const routeConfig: AppRouteProps[] = [
         path: `${RoutePath.articles_details}/:id`,
         element: <ArticleDetailsPage />,
     },
+    {
+        authOnly: true,
+        path: `${RoutePath.articles_edit}`,
+        element: <ArticleEditPage />,
+    },
+    {
+        authOnly: true,
+        path: `${RoutePath.articles_create}`,
+        element: <ArticleCreatePage />,
+    },
+    {
+        authOnly: true,
+        path: `${RoutePath.admin}`,
+        element: <AdminPage />,
+        roles: ['ADMIN', 'MANAGER'],
+    },
+    {
+        path: `${RoutePath.forbidden}`,
+        element: <ForbiddenPage />,
+    },
 
-    // *last
     {
         path: RoutePath.not_found,
         element: <NotFoundPage />,

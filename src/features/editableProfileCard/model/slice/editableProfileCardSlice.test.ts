@@ -1,8 +1,5 @@
 import type { ProfileI } from 'shared/types/profile';
-import {
-    ValidateProfileError,
-    type ProfileSchema,
-} from '../types/profileSchema';
+import type { ProfileSchema } from '../types/profileSchema';
 import {
     setProfile,
     updateProfile,
@@ -12,6 +9,7 @@ import {
 } from './editableProfileCardSlice';
 import { AnyAction } from '@reduxjs/toolkit';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { ValidateProfileError } from '../consts/consts';
 // prettier-ignore
 
 describe('editableProfileCardSlice', () => {

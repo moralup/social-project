@@ -11,7 +11,10 @@ export enum InputTheme {
 
 export type InputType = 'text' | 'password' | 'number' | 'email';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange'
+>;
 
 interface InputProps extends HTMLInputProps {
     type?: InputType;
@@ -21,6 +24,7 @@ interface InputProps extends HTMLInputProps {
     value?: string;
     onChange?: (value: string) => void;
     readonly?: boolean;
+    'data-testid'?: string;
 }
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
@@ -32,6 +36,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         onChange,
         className,
         readonly,
+        'data-testid': dataTestId = '',
         ...otherProps
     } = props;
 
@@ -43,18 +48,20 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         <label className={classNames(cls.label, {}, [className])}>
             {caption && (
                 <span
-                    data-testid="caption"
+                    data-testid={`${dataTestId}.caption`}
                     className={cls.caption}
                 >
                     {caption}
                 </span>
             )}
             <input
-                data-testid="input"
+                data-testid={`${dataTestId}.input`}
                 type={type}
                 value={value}
                 onChange={onChangeHandler}
-                className={classNames(cls.input, { [cls.readonly]: readonly }, [cls[theme]])}
+                className={classNames(cls.input, { [cls.readonly]: readonly }, [
+                    cls[theme],
+                ])}
                 spellCheck={false}
                 readOnly={readonly}
                 // eslint-disable-next-line react/jsx-props-no-spreading

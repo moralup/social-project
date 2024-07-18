@@ -47,7 +47,8 @@ export enum ArticleType {
 
 export interface ArticleI {
     id: string;
-    user: UserI;
+    user?: UserI;
+    userId?: string;
     title: string;
     subtitle: string;
     img: string;

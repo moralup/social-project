@@ -24,7 +24,10 @@ export const ArticleListItemCompact: FC<ArticleListItemProps> = props => {
             to={articleDetailsPath}
             target={target}
         >
-            <div className={classNames(cls.articleListItem, {}, [cls.compact])}>
+            <div
+                data-testid="articleListItemCompact"
+                className={classNames(cls.articleListItem, {}, [cls.compact])}
+            >
                 <div className={cls.imageWrapper}>
                     <img
                         src={img}

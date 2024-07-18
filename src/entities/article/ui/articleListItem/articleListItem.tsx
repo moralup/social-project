@@ -8,12 +8,12 @@ import { ArticleListItemCompact } from './articleListItemCompact';
 
 interface ArticleListItemProps {
     article: ArticleI;
-    view?: ArticleView;
+    view: ArticleView;
     target?: '_blank';
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = props => {
-    const { article, view = ArticleView.COMPACT, target } = props;
+    const { article, view, target } = props;
     const { id } = article;
     const articleDetailsPath = `${RoutePath.articles_details}/${id}`;
 

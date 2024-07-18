@@ -29,7 +29,6 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
         className,
         currentAvatar,
         readonly,
-
         onChangeFirstName,
         onChangeLastName,
         onChangeAge,
@@ -71,6 +70,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                             onChange={onChangeAvatar}
                             readonly={false}
                             theme={InputTheme.OUTLINE}
+                            data-testid="avatar"
                         />
                     )}
                 </div>
@@ -81,6 +81,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                 onChange={onChangeFirstName}
                 readonly={readonly}
                 theme={getTheme(readonly)}
+                data-testid="name"
             />
             <Input
                 caption={t('фамилия')}
@@ -88,6 +89,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                 onChange={onChangeLastName}
                 readonly={readonly}
                 theme={getTheme(readonly)}
+                data-testid="surname"
             />
             <Input
                 caption={t('ник')}
@@ -95,6 +97,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                 onChange={onChangeUsername}
                 readonly={readonly}
                 theme={getTheme(readonly)}
+                data-testid="nickname"
             />
             <Input
                 caption={t('возраст')}
@@ -102,6 +105,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                 onChange={onChangeAge}
                 readonly={readonly}
                 theme={getTheme(readonly)}
+                data-testid="age"
             />
             <Input
                 caption={t('страна')}
@@ -109,6 +113,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                 onChange={onChangeCountry}
                 readonly={readonly}
                 theme={getTheme(readonly)}
+                data-testid="country"
             />
             <Input
                 caption={t('город')}
@@ -116,6 +121,7 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
                 onChange={onChangeCity}
                 readonly={readonly}
                 theme={getTheme(readonly)}
+                data-testid="city"
             />
         </div>
     );

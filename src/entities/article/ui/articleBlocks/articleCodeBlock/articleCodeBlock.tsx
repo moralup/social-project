@@ -21,7 +21,10 @@ export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = props => {
     }, [code]);
 
     return (
-        <pre className={classNames(cls.articleCodeBlock, {}, [className])}>
+        <pre
+            data-testid="articleCodeBlock"
+            className={classNames(cls.articleCodeBlock, {}, [className])}
+        >
             <Button
                 onClick={onCopy}
                 theme={ButtonTheme.CLEAR}

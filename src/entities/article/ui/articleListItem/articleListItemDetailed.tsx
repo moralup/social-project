@@ -34,16 +34,20 @@ export const ArticleListItemDetailed: FC<ArticleListItemProps> = props => {
     ) as ArticleTextBlockI | undefined;
 
     return (
-        <div className={classNames(cls.articleListItem, {}, [cls.detailed])}>
+        <div
+            data-testid="articleListItemDetailed"
+            className={classNames(cls.articleListItem, {}, [cls.detailed])}
+        >
             <div className={cls.header}>
-                {user.avatar && (
+                {user?.avatar && (
                     <Avatar
+                        data-testid="articleListItemDetailedUserAvatar"
                         src={user.avatar}
                         className={cls.avatar}
                         alt=""
                     />
                 )}
-                <Text className={cls.username}>{user.username}</Text>
+                <Text className={cls.username}>{user?.username}</Text>
                 <Text className={cls.date}>{createdAt}</Text>
             </div>
             <Text

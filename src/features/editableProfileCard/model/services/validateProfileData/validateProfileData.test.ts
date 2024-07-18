@@ -1,5 +1,5 @@
 import { ProfileI } from 'shared/types/profile';
-import { ValidateProfileError } from '../../types/profileSchema';
+import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from './validateProfileData';
 
 describe('validateProfileData', () => {

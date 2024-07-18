@@ -1,0 +1,14 @@
+.commentForm {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.input {
+    flex-grow: 1;
+
+    & ::placeholder {
+        color: var(--secondary-color);
+    }
+}

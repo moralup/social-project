@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/user';
 import { NavLinkI } from 'widgets/Sidebar/model/types/sidebar';
 import { getNavLinkList } from 'widgets/Sidebar/model/selectors/getNavLinkList';
+import { Vstack } from 'shared/ui/stack/Vstack/Vstack';
 // import { navLinkList, NavLinkI } from 'shared/config/routeConfig/routeConfig';
 
 interface NavProps {
@@ -29,5 +30,9 @@ export const Nav: FC<NavProps> = memo(({ collapsed }: NavProps) => {
         );
     };
 
-    return <nav className={cls.navigation}>{navLinkList.map(renderLinks)}</nav>;
+    return (
+        <nav className={cls.navigation}>
+            <Vstack>{navLinkList.map(renderLinks)}</Vstack>
+        </nav>
+    );
 });

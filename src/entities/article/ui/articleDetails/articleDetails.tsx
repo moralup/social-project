@@ -17,8 +17,11 @@ import {
 } from '../articleSkeletons/articleDetailsSkeleton/articleDetailsSkeleton';
 import { ArticleDetailsContent } from './articleDetailsContent';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { ArticleI } from 'entities/article/model/types/article';
+import cls from './articleDetails.module.scss';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { getUserAuthData } from 'entities/user';
 
 interface ArticleDetailsProps {
     articleId?: string;
@@ -28,38 +31,33 @@ const reducers = {
     articleDetails: articleDetailsReducer,
 };
 
-const useArticleDetailsContent = () => {
-    const data = useSelector(getArticleDetailsData);
-    const isLoading = useSelector(getArticleDetailsIsLoading);
-    const error = useSelector(getArticleDetailsError);
-
-    // prettier-ignore
-    switch (true) {
-    case isLoading:
+const getContent = (data?: ArticleI, isLoading?: boolean, error?: string) => {
+    if (isLoading) {
         return <ArticleDetailsSkeleton />;
-    case Boolean(error):
+    }
+
+    if (error || !data) {
         return (
             <Text
+                data-testid="error"
                 title="Error"
                 theme={TextTheme.ERROR}
             />
         );
-    case Boolean(data):
-        return <ArticleDetailsContent data={data!} />;
-    default:
-        return null;
     }
+    return <ArticleDetailsContent data={data} />;
 };
 
 export const ArticleDetails: FC<ArticleDetailsProps> = memo(
     ({ articleId }: ArticleDetailsProps) => {
         const dispatch = useTypedDispatch();
-        const content = useArticleDetailsContent();
         const { t } = useTranslation();
-        const navigate = useNavigate();
-        const onGoBack = () => {
-            navigate(-1);
-        };
+
+        const data = useSelector(getArticleDetailsData);
+        const isLoading = useSelector(getArticleDetailsIsLoading);
+        const error = useSelector(getArticleDetailsError);
+        const user = useSelector(getUserAuthData);
+        const isCanEdit = user?.id === data?.userId;
 
         useEffect(() => {
             if (articleId) {
@@ -68,12 +66,25 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
         }, [dispatch, articleId]);
 
         return (
-            <DynamicModuleLoader
-                reducers={reducers}
-            >
+            <DynamicModuleLoader reducers={reducers}>
                 <>
-                    <Button onClick={onGoBack}>{t('Вернуться назад')}</Button>
-                    <div>{content}</div>
+                    <div className={cls.header}>
+                        <AppLink
+                            className={cls.allArticlesLink}
+                            to={RoutePath.articles}
+                        >
+                            {t('Все статьи')}
+                        </AppLink>
+                        {isCanEdit && (
+                            <AppLink
+                                data-testid="edit-link"
+                                to={`${RoutePath.articles}/${articleId}/edit`}
+                            >
+                                {t('Редактировать')}
+                            </AppLink>
+                        )}
+                    </div>
+                    {getContent(data, isLoading, error)}
                 </>
             </DynamicModuleLoader>
         );

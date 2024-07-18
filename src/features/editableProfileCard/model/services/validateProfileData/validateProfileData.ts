@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
 import { ProfileI } from 'shared/types/profile';
-import { ValidateProfileError } from '../../types/profileSchema';
+import { ValidateProfileError } from '../../consts/consts';
 import { MAX_AGE, MIN_AGE } from 'shared/consts/age';
 
 export const validateProfileData = (profile?: ProfileI) => {

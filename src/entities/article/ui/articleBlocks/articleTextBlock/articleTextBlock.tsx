@@ -15,9 +15,13 @@ export const ArticleTextBlock: FC<ArticleTextBlockProps> = props => {
     const { title, paragraphs } = block;
 
     return (
-        <div className={className}>
+        <div
+            data-testid="articleTextBlock"
+            className={className}
+        >
             {title && (
                 <Text
+                    data-testid="articleTextBlockTitle"
                     title={title}
                     className={cls.title}
                 />

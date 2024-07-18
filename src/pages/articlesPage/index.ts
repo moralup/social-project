@@ -4,4 +4,4 @@ export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArtic
 
 export { ArticlesPageAsync as ArticlesPage } from './ui/articlesPage/articlesPage.async';
 
-export { ArticlesPageSchema } from './model/types/articlesPageSchema';
+export type { ArticlesPageSchema } from './model/types/articlesPageSchema';

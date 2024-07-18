@@ -1,4 +1,4 @@
-export const titleCase = (str: string) => {
-    if (!str.length) return '';
-    return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+export const titleCase = (word: string): Capitalize<string> => {
+    if (!word.length) return '';
+    return `${word.charAt(0).toUpperCase()}${word.slice(1)}` as Capitalize<string>;
 };

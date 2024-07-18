@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import { Skeleton } from 'shared/ui/skeleton/skeleton';
-import cls from './ArticleListItemDetailedSkeleton.module.scss';
+import cls from './articleListItemDetailedSkeleton.module.scss';
 
 export const ArticleListItemDetailedSkeleton: FC = () => {
     return (
-        <div className={cls.articleListItemSkeleton}>
+        <div
+            data-testid="articleListItemDetailedSkeleton"
+            className={cls.articleListItemSkeleton}
+        >
             <div className={cls.header}>
                 <Skeleton
                     width={40}

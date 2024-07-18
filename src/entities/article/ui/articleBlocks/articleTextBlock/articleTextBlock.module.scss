@@ -2,6 +2,6 @@
     margin-bottom: 10px;
 }
 
-.paragraph {
-    margin-bottom: 25px;
+.paragraph:not(.paragraph:last-child) {
+    margin-bottom: 15px;
 }

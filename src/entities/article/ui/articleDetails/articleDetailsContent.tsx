@@ -16,11 +16,12 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 
 import cls from './articleDetails.module.scss';
+import { Hstack } from 'shared/ui/stack';
 
 interface ArticleContentProps {
     data: ArticleI;
 }
-
+// prettier-ignore
 const renderBlocks = (block: ArticleBlockI) => {
     switch (block.type) {
     case ArticleBlockType.CODE:
@@ -54,7 +55,7 @@ const renderBlocks = (block: ArticleBlockI) => {
 
 export const ArticleDetailsContent: FC<ArticleContentProps> = ({ data }) => {
     return (
-        <>
+        <div>
             <Avatar
                 src={data.img}
                 alt={data.img}
@@ -66,15 +67,23 @@ export const ArticleDetailsContent: FC<ArticleContentProps> = ({ data }) => {
                 size={TextSize.XL}
             />
             <Text size={TextSize.L}>{data.subtitle}</Text>
-            <div className={cls.articleDetailsInfo}>
+            <Hstack
+                gap="8"
+                justify="start"
+                className={cls.articleDetailsInfo}
+            >
                 <EyeIcon />
                 <Text>{String(data.views)}</Text>
-            </div>
-            <div className={cls.articleDetailsInfo}>
+            </Hstack>
+            <Hstack
+                gap="8"
+                justify="start"
+                className={cls.articleDetailsInfo}
+            >
                 <CalendarIcon />
                 <Text>{data.createdAt}</Text>
-            </div>
+            </Hstack>
             {data.blocks.map(renderBlocks)}
-        </>
+        </div>
     );
 };

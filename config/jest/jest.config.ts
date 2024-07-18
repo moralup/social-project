@@ -33,6 +33,20 @@ export default {
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^axios$': 'axios/dist/node/axios.cjs',
     },
+    reporters: [
+        'default',
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/jest',
+                filename: 'report.html',
+                // openReport: true,
+                openReport: false,
+                darkTheme: true,
+                inlineSource: true,
+            },
+        ],
+    ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -105,8 +119,6 @@ export default {
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    // reporters: undefined,
-
     // Automatically reset mock state before every test
     // resetMocks: false,
 

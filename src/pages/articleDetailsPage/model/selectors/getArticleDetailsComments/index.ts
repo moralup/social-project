@@ -1,1 +1,0 @@
-export { getArticleDetailsComments } from './getArticleDetailsComments';

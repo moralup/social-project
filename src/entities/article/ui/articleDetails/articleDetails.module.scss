@@ -12,11 +12,11 @@
 }
 
 .articleDetailsInfo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
     svg {
         fill: var(--secondary-color);
     }
+}
+.header {
+    display: flex;
+    justify-content: space-between;
 }

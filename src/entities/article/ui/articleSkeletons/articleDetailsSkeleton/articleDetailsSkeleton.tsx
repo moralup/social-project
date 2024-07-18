@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/ui/skeleton/skeleton';
-import cls from './ArticleDetailsSkeleton.module.scss';
+import cls from './articleDetailsSkeleton.module.scss';
 
 export const ArticleDetailsSkeleton: FC = () => {
     return (
-        <div>
+        <div data-testid="articleDetailsSkeleton">
             <Skeleton
                 className={classNames(cls.skeleton, {}, [cls.skeletonAvatar])}
                 width={130}

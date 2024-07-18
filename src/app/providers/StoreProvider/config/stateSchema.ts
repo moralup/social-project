@@ -8,30 +8,26 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 
 // *State Schemas
-import { CounterSchema } from 'entities/counter';
 import { UserSchema } from 'entities/user';
 import { LoginSchema } from 'features/authByUsername';
 import { ProfileSchema } from 'features/editableProfileCard/model/types/profileSchema';
 import { ArticleDetailsSchema } from 'entities/article';
-import { ArticleDetailsPageSchema } from 'pages/articleDetailsPage';
-import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/articlesPage';
 import { PageSchema } from 'widgets/page';
 import { ArticlesPageFiltersSchema } from 'features/articlesPageFilters';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
-    counter: CounterSchema;
     user: UserSchema;
     page: PageSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // *Async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
-    articleDetails?: ArticleDetailsSchema;
-    addCommentForm?: AddCommentFormSchema;
+    articleDetails?: ArticleDetailsSchema; //! NEED TO CHANGE
     articlesPage?: ArticlesPageSchema;
     articlesPageFilters?: ArticlesPageFiltersSchema;
-    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

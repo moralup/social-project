@@ -7,11 +7,22 @@ import { ArticleView } from 'entities/article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
 import { ArticleType } from 'entities/article/model/types/article';
 
+const viewFromLocalStorage = localStorage.getItem(
+    ARTICLE_VIEW_LOCAL_STORAGE_KEY,
+);
+let initView: ArticleView;
+
+if (viewFromLocalStorage) {
+    initView = JSON.parse(viewFromLocalStorage);
+} else {
+    initView = ArticleView.COMPACT;
+}
+
 const initialState: ArticlesPageFiltersSchema = {
     order: 'asc',
     search: '',
     sort: ArticleSortFiled.VIEWS,
-    view: ArticleView.COMPACT,
+    view: initView,
 };
 
 const articlesPageFiltersSlice = createSlice({
