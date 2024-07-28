@@ -1,9 +1,9 @@
-import { getUserAuthData } from 'entities/user';
-import { UserRoleI } from 'entities/user/model/types/user';
+import { getUserAuthData } from '@/entities/user';
+import { UserRoleI } from '@/entities/user/model/types/user';
+import { getRouteForbidden, getRouteMain } from '@/shared/consts/router';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 export const RequireAuth = ({
     children,
@@ -25,7 +25,7 @@ export const RequireAuth = ({
     if (!user) {
         return (
             <Navigate
-                to={RoutePath.main}
+                to={getRouteMain()}
                 state={{ from: location }}
                 replace
             />
@@ -35,7 +35,7 @@ export const RequireAuth = ({
     if (!hasRequireRole) {
         return (
             <Navigate
-                to={RoutePath.forbidden}
+                to={getRouteForbidden()}
                 state={{ from: location }}
                 replace
             />
@@ -44,4 +44,3 @@ export const RequireAuth = ({
 
     return children;
 };
-

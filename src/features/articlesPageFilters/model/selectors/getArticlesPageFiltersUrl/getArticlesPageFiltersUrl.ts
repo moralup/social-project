@@ -3,7 +3,7 @@ import { getArticlesPageFiltersOrder } from '../getArticlesPageFiltersOrder';
 import { getArticlesPageFiltersSearch } from '../getArticlesPageFiltersSearch';
 import { getArticlesPageFiltersSort } from '../getArticlesPageFiltersSort';
 import { getArticlesPageFiltersType } from '../getArticlesPageFiltersType';
-import { ArticleType } from 'entities/article/model/types/article';
+import { ArticleType } from '@/entities/article/model/types/article';
 
 export const getArticlesPageFiltersUrl = createSelector(
     getArticlesPageFiltersOrder,

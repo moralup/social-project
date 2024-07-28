@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk';
-import { $api } from 'shared/api/api';
-import { ProfileI } from 'shared/types/profile';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
+import { $api } from '@/shared/api/api';
+import { ProfileI } from '@/shared/types/profile';
 import { fetchProfileData } from './fetchProfileData';
 import { ValidateProfileError } from '../../consts/consts';
 

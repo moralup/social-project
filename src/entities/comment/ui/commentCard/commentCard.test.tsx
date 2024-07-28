@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { CommentCard } from './commentCard';
-import { componentRender } from 'shared/lib/tests/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 
 describe('Component CommentCard', () => {
     test('without avatar, tag img should do not render', () => {
@@ -17,7 +17,7 @@ describe('Component CommentCard', () => {
         expect(screen.queryByTestId('avatar')).toBeNull();
     });
 
-    test('with avatar, tag img should do render', () => {
+    test('with avatar, tag img should do render', async () => {
         componentRender(
             <CommentCard
                 comment={{
@@ -31,8 +31,7 @@ describe('Component CommentCard', () => {
                 }}
             />,
         );
-
-        expect(screen.queryByTestId('avatar')).toBeInTheDocument();
+        expect(screen.getByTestId('avatar')).toBeInTheDocument();
     });
 
     test('with isLoading true, should render skeleton, and skeleton should have a true size', () => {

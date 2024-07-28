@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
-import { componentRender } from 'shared/lib/tests/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleDetails } from './articleDetails';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     ArticleBlockType,
     ArticleType,
-} from 'entities/article/model/types/article';
-import { UserI } from 'entities/user';
+} from '@/entities/article/model/types/article';
+import { UserI } from '@/entities/user';
 import { screen } from '@testing-library/react';
 
 type InitialStateType = Pick<StateSchema, 'articleDetails' | 'user'>;

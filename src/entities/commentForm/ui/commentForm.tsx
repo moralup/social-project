@@ -1,10 +1,10 @@
 import { FC, FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Input, InputTheme } from 'shared/ui/Input/input';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Input, InputTheme } from '@/shared/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 import cls from './commentForm.module.scss';
 

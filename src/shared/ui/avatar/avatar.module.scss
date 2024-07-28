@@ -8,6 +8,14 @@
     object-fit: cover;
 }
 
+.defaultAvatar {
+    fill: var(--primary-color);
+}
+
+.inverted {
+    fill: var(--inverted-primary-color);
+}
+
 .border {
     border: 2px solid black;
 }

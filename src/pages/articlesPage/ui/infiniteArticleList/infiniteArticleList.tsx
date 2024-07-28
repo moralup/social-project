@@ -1,14 +1,14 @@
 import { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
+import { useTypedDispatch } from '@/shared/lib/hooks/useTypedDispatch';
 
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading';
-import { getArticlesPageFiltersView } from 'features/articlesPageFilters';
+import { getArticlesPageFiltersView } from '@/features/articlesPageFilters';
 
-import { ArticleList } from 'entities/article';
+import { ArticleList } from '@/entities/article';
 
 export const InfiniteArticleList: FC = () => {
     const dispatch = useTypedDispatch();

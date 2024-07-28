@@ -5,18 +5,18 @@ import {
     ArticleBlockType,
 } from '../../model/types/article';
 
-import { Avatar, AvatarSize } from 'shared/ui/avatar/avatar';
-import { Text, TextSize } from 'shared/ui/Text';
+import { Hstack } from '@/shared/ui/stack';
+import { Avatar, AvatarSize } from '@/shared/ui/avatar';
+import { Text, TextSize } from '@/shared/ui/Text';
 
 import { ArticleCodeBlock } from '../articleBlocks/articleCodeBlock/articleCodeBlock';
 import { ArticleImageBlock } from '../articleBlocks/articleImageBlock/articleImageBlock';
 import { ArticleTextBlock } from '../articleBlocks/articleTextBlock/articleTextBlock';
 
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 
 import cls from './articleDetails.module.scss';
-import { Hstack } from 'shared/ui/stack';
 
 interface ArticleContentProps {
     data: ArticleI;

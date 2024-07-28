@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ArticleView } from '../../../model/types/article';
-import { Skeleton } from 'shared/ui/skeleton/skeleton';
+import { Skeleton } from '@/shared/ui/skeleton';
 import { ArticleListItemDetailedSkeleton } from './articleListItemDetailedSkeleton';
 
 interface ArticleListItemProps {

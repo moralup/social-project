@@ -1,5 +1,5 @@
-import { $api } from 'shared/api/api';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk';
+import { $api } from '@/shared/api/api';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 // import { ArticleView } from 'entities/article';
 import { ArticlesPageSchema } from '../../types/articlesPageSchema';

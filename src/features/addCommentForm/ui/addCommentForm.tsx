@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAddComment } from '../api/addCommentApi';
-import { getUserAuthData } from 'entities/user';
-import { CommentForm } from 'entities/commentForm';
+import { getUserAuthData } from '@/entities/user';
+import { CommentForm } from '@/entities/commentForm';
 
 interface AddCommentFormProps {
     articleId: string;

@@ -1,6 +1,9 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './avatar.module.scss';
+import { AppImage } from '../appImage/appImage';
+import { Skeleton } from '../skeleton';
+import DefaultAvatarIcon from '../../assets/icons/default-avatar.svg';
 
 export enum AvatarSize {
     M = 'size-m',
@@ -19,6 +22,8 @@ export interface AvatarProps {
     className?: string;
     theme?: AvatarTheme;
     size?: AvatarSize;
+    inverted?: boolean;
+    'data-testid': string;
 }
 
 export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
@@ -28,15 +33,38 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
         src,
         theme = AvatarTheme.NORMAL,
         size = AvatarSize.M,
+        inverted,
 
         ...otherProps
     } = props;
 
+    const fallback = (
+        <Skeleton
+            data-testid={props['data-testid']}
+            inverted={inverted}
+            className={classNames(cls.avatar, {}, [className, cls[size]])}
+        />
+    );
+
+    const errorFallback = (
+        <DefaultAvatarIcon
+            className={classNames(cls.defaultAvatar, {
+                [cls.inverted]: inverted,
+            })}
+        />
+    );
+
     return (
-        <img
+        <AppImage
             alt={alt}
-            src={src}
-            className={classNames(cls.avatar, {}, [className, cls[theme], cls[size]])}
+            src={src ?? ''}
+            className={classNames(cls.avatar, {}, [
+                className,
+                cls[theme],
+                cls[size],
+            ])}
+            fallback={fallback}
+            errorFallback={errorFallback}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         />

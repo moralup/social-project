@@ -1,8 +1,8 @@
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk';
-import { ProfileI } from 'shared/types/profile';
-import { $api } from 'shared/api/api';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
+import { ProfileI } from '@/shared/types/profile';
+import { $api } from '@/shared/api/api';
 import { updateProfileData } from './updateProfileData';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { ValidateProfileError } from '../../consts/consts';
 
 jest.mock('shared/api/api');

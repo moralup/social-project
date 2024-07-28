@@ -1,6 +1,6 @@
 import type { AsyncThunk, Dispatch } from '@reduxjs/toolkit';
-import type { StateSchema } from 'app/providers/StoreProvider';
-import { ThunkExtraArg } from 'app/providers/StoreProvider/config/stateSchema';
+import type { StateSchema } from '@/app/providers/StoreProvider';
+import { ThunkExtraArg } from '@/app/providers/StoreProvider/config/stateSchema';
 
 type ActionCreatorType<Returned, Arg, RejectValue> = AsyncThunk<
     Returned,

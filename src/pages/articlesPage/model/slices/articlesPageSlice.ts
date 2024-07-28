@@ -4,10 +4,10 @@ import {
     PayloadAction,
 } from '@reduxjs/toolkit';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { ArticleI, ArticleView } from 'entities/article';
-import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
+import { ArticleI, ArticleView } from '@/entities/article';
+import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@/shared/consts/localStorage';
 
 const articlesAdapter = createEntityAdapter<ArticleI>({
     selectId: article => article.id,

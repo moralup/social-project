@@ -1,4 +1,4 @@
-import { ProfileI } from 'shared/types/profile';
+import { ProfileI } from '@/shared/types/profile';
 import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from './validateProfileData';
 

@@ -8,8 +8,13 @@
     background: var(--inverted-bg-color);
     padding: 10px 15px;
     border-radius: 12px;
+    cursor: pointer;
 
     &:not(.active) {
         opacity: 0.5;
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }

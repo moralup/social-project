@@ -1,8 +1,8 @@
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { componentRender } from 'shared/lib/tests/componentRender';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { componentRender } from '@/shared/lib/tests/componentRender';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { loginReducer } from '../../model/slice/loginSlice';
 import LoginForm from './loginForm';
 
@@ -13,12 +13,12 @@ describe('LoginForm', () => {
     test('render inputs with correct attributes', () => {
         componentRender(<LoginForm />);
 
-        const inputLogin = screen.getByTestId('username');
+        const inputLogin = screen.getByTestId('username.input');
         expect(inputLogin).toBeInTheDocument();
         expect(inputLogin).toHaveAttribute('type', 'text');
         expect(inputLogin).toHaveAttribute('required', '');
 
-        const inputPassword = screen.getByTestId('password');
+        const inputPassword = screen.getByTestId('password.input');
         expect(inputPassword).toBeInTheDocument();
         expect(inputPassword).toHaveAttribute('type', 'text');
         expect(inputLogin).toHaveAttribute('required', '');
@@ -27,14 +27,18 @@ describe('LoginForm', () => {
     test('sets inputs without initial state', () => {
         componentRender(<LoginForm />);
 
-        expect(screen.getByTestId('username')).toHaveValue('');
-        expect(screen.getByTestId('password')).toHaveValue('');
+        expect(screen.getByTestId('username.input')).toHaveValue('');
+        expect(screen.getByTestId('password.input')).toHaveValue('');
 
-        fireEvent.change(screen.getByTestId('username'), { target: { value: 'myLogin' } });
-        fireEvent.change(screen.getByTestId('password'), { target: { value: 'myPassword' } });
+        fireEvent.change(screen.getByTestId('username.input'), {
+            target: { value: 'myLogin' },
+        });
+        fireEvent.change(screen.getByTestId('password.input'), {
+            target: { value: 'myPassword' },
+        });
 
-        expect(screen.getByTestId('username')).toHaveValue('myLogin');
-        expect(screen.getByTestId('password')).toHaveValue('myPassword');
+        expect(screen.getByTestId('username.input')).toHaveValue('myLogin');
+        expect(screen.getByTestId('password.input')).toHaveValue('myPassword');
     });
 
     test('sets inputs with initial state', () => {
@@ -54,14 +58,18 @@ describe('LoginForm', () => {
             asyncReducers: reducer,
         });
 
-        expect(screen.getByTestId('username')).toHaveValue('myUsername');
-        expect(screen.getByTestId('password')).toHaveValue('myPassword');
+        expect(screen.getByTestId('username.input')).toHaveValue('myUsername');
+        expect(screen.getByTestId('password.input')).toHaveValue('myPassword');
 
-        fireEvent.change(screen.getByTestId('username'), { target: { value: 'anotherUsername' } });
-        fireEvent.change(screen.getByTestId('password'), { target: { value: 'anotherPassword' } });
+        fireEvent.change(screen.getByTestId('username.input'), {
+            target: { value: 'anotherUsername' },
+        });
+        fireEvent.change(screen.getByTestId('password.input'), {
+            target: { value: 'anotherPassword' },
+        });
 
-        expect(screen.getByTestId('username')).toHaveValue('anotherUsername');
-        expect(screen.getByTestId('password')).toHaveValue('anotherPassword');
+        expect(screen.getByTestId('username.input')).toHaveValue('anotherUsername');
+        expect(screen.getByTestId('password.input')).toHaveValue('anotherPassword');
     });
 
     test('should handle successful login on button click', async () => {

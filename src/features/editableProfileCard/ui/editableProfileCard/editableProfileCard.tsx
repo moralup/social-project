@@ -1,15 +1,19 @@
 import { FC, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
+import { useTypedDispatch } from '@/shared/lib/hooks/useTypedDispatch';
 
 // !libs
-import { MAX_AGE } from 'shared/consts/age';
-import { titleCase } from 'shared/lib/titleCase/titleCase';
-import { classNames } from 'shared/lib/classNames/classNames';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/dynamicModuleLoader';
+import { MAX_AGE } from '@/shared/consts/age';
+import { titleCase } from '@/shared/lib/titleCase/titleCase';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 // !components
-import { ProfileCard } from 'entities/profile';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { ProfileCard } from '@/entities/profile';
+import { Loader } from '@/shared/ui/Loader';
 import { EditableProfileCardErrors } from '../editableProfileCardErrors/editableProfileCardErrors';
 import { EditableProfileCardHeader } from '../editableProfileCardHeader/editableProfileCardHeader';
 
@@ -30,10 +34,6 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
 
 import cls from './editableProfileCard.module.scss';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from 'shared/lib/components/dynamicModuleLoader';
 
 const reducers: ReducersList = {
     profile: profileReducer,

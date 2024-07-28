@@ -6,8 +6,8 @@ import {
     ArticleI,
     ArticleType,
     ArticleView,
-} from 'entities/article/model/types/article';
-import { componentRender } from 'shared/lib/tests/componentRender';
+} from '@/entities/article/model/types/article';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 
 const articles: ArticleI[] = [
     {

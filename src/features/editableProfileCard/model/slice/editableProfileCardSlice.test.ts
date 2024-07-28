@@ -1,4 +1,4 @@
-import type { ProfileI } from 'shared/types/profile';
+import type { ProfileI } from '@/shared/types/profile';
 import type { ProfileSchema } from '../types/profileSchema';
 import {
     setProfile,

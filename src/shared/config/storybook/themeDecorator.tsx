@@ -1,4 +1,4 @@
-import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
+import { Theme, ThemeProvider } from '@/entities/theme';
 import { StoryFn } from '@storybook/react';
 
 // prettier-ignore

@@ -1,10 +1,11 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './text.module.scss';
 
 export enum TextTheme {
     ERROR = 'error',
     PRIMARY = 'primary',
+    INVERTED_PRIMARY = 'inverted-primary',
 }
 
 export enum TextSize {

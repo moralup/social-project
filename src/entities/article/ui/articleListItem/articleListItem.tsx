@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleView, type ArticleI } from '../../model/types/article';
 
 import { ArticleListItemDetailed } from './articleListItemDetailed';
 import { ArticleListItemCompact } from './articleListItemCompact';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
     article: ArticleI;
@@ -15,13 +15,12 @@ interface ArticleListItemProps {
 export const ArticleListItem: FC<ArticleListItemProps> = props => {
     const { article, view, target } = props;
     const { id } = article;
-    const articleDetailsPath = `${RoutePath.articles_details}/${id}`;
 
     if (view === ArticleView.DETAILED) {
         return (
             <ArticleListItemDetailed
                 article={article}
-                articleDetailsPath={articleDetailsPath}
+                articleDetailsPath={getRouteArticleDetails(id)}
                 target={target}
             />
         );
@@ -30,7 +29,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = props => {
     return (
         <ArticleListItemCompact
             article={article}
-            articleDetailsPath={articleDetailsPath}
+            articleDetailsPath={getRouteArticleDetails(id)}
             target={target}
         />
     );

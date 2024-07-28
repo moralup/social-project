@@ -1,22 +1,24 @@
 import { FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 import {
     ArticleBlockType,
     ArticleTextBlockI,
-} from 'entities/article/model/types/article';
+} from '@/entities/article/model/types/article';
 import { ArticleI } from '../../model/types/article';
 
 import { ArticleTextBlock } from '../articleBlocks/articleTextBlock/articleTextBlock';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Text } from 'shared/ui/Text';
-import { Avatar } from 'shared/ui/avatar/avatar';
-import { Button } from 'shared/ui/Button/Button';
-import EyeIcon from 'shared/assets/icons/eye.svg';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Text } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/avatar';
+import { Button } from '@/shared/ui/Button';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 
 import cls from './articleListItem.module.scss';
+import { AppImage } from '@/shared/ui/appImage/appImage';
+import { Skeleton } from '@/shared/ui/skeleton';
 
 interface ArticleListItemProps {
     article: ArticleI;
@@ -55,10 +57,17 @@ export const ArticleListItemDetailed: FC<ArticleListItemProps> = props => {
                 title={title}
             />
             <Text className={cls.types}>{type.join(', ')}</Text>
-            <img
+            <AppImage
                 src={img}
                 alt=""
                 className={cls.image}
+                fallback={(
+                    <Skeleton
+                        width="100%"
+                        height={200}
+                        inverted
+                    />
+                )}
             />
             {textBlock && (
                 <ArticleTextBlock
@@ -71,6 +80,7 @@ export const ArticleListItemDetailed: FC<ArticleListItemProps> = props => {
                     className={cls.readMoreBtn}
                     to={articleDetailsPath}
                     target={target}
+                    data-testid="articleListItemAppLink"
                 >
                     <Button>{t('Читать далее...')}</Button>
                 </AppLink>

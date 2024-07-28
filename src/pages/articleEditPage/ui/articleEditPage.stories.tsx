@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleEditPage } from './articleEditPage';
 
 const meta: Meta<typeof ArticleEditPage> = {
-    title: 'DIRECTORY/ArticleEditPage',
+    title: 'pages/ArticleEditPage',
     component: ArticleEditPage,
     args: {
 

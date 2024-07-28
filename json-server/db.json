@@ -1,4 +1,69 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "New notification 1",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "title": "New notification 2",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "title": "New notification 3",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "title": "New notification 4",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "5",
+      "userId": "2",
+      "title": "New notification 5",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "6",
+      "userId": "3",
+      "title": "New notification 6",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "7",
+      "userId": "1",
+      "title": "New notification 7",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "8",
+      "userId": "2",
+      "title": "New notification 8",
+      "description": "u gets new message",
+      "href": "string"
+    },
+    {
+      "id": "9",
+      "userId": "3",
+      "title": "New notification 9",
+      "description": "u gets new message",
+      "href": "string"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -1463,6 +1528,18 @@
       "userId": "2",
       "text": "afs",
       "id": "X7Nfh2N"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "text": "цуацуа",
+      "id": "tbtflLS"
+    },
+    {
+      "articleId": "12",
+      "userId": "2",
+      "text": "ewfwef",
+      "id": "2iTGTht"
     }
   ],
   "users": [
@@ -1518,6 +1595,82 @@
       "country": "Russia",
       "city": "Moscow",
       "avatar": "https://i.pinimg.com/736x/7a/8e/b7/7a8eb7cf77bbc04a7a20f315d4630d6c.jpg"
+    }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "userId": "1",
+      "articleId": "1",
+      "rate": 4,
+      "feedback": "nice article! I like so"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "articleId": "2",
+      "rate": 5,
+      "feedback": "the best article. I love so!!!"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "articleId": "3",
+      "rate": 2,
+      "feedback": "the baddest."
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "articleId": "4",
+      "rate": 1,
+      "feedback": "the worst thing i've seen. -1000"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "ewfewf",
+      "id": "O9gjKDk"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "rate": 2,
+      "feedback": "normal",
+      "id": "yYx7vbF"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice nice  afasf  qefwef wef we fewf wef wef wef wef wfbwef iwef wief ewiuf iewfiwe fiew fiew fiwe fiwe fiwe fiwe fiwef ewif ewif wief wiehf weif ewhif ewhif",
+      "id": "DGzY9bw"
+    },
+    {
+      "articleId": "14",
+      "userId": "1",
+      "rate": 5,
+      "id": "aRIwaoq"
+    },
+    {
+      "articleId": "15",
+      "userId": "1",
+      "rate": 2,
+      "feedback": "Приступим к обзору этого чуда. Прелесть Google Apps Script заключается в том, что при правильной настройке ваша Google-табличка может жить абсолютно самостоятельно: скрипт будет в фоновом режиме собирать, хранить, перебирать, сшивать и сравнивать данные. Для этого достаточно настроить триггеры на вызов функции, когда вам удобно.",
+      "id": "u0lbn44"
+    },
+    {
+      "articleId": "16",
+      "userId": "1",
+      "rate": 2,
+      "id": "eX0CJri"
+    },
+    {
+      "articleId": "22",
+      "userId": "1",
+      "rate": 4,
+      "id": "BTt6qxM"
     }
   ]
 }

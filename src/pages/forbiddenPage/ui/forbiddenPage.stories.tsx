@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ForbiddenPage from './forbiddenPage';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
 
 const meta: Meta<typeof ForbiddenPage> = {
     title: 'pages/ForbiddenPage',
     component: ForbiddenPage,
-    args: {},
+    decorators: [storeDecorator()],
 };
 
 export default meta;

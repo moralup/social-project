@@ -4,7 +4,7 @@ import { ArticleImageBlock } from './articleImageBlock';
 import {
     ArticleBlockType,
     ArticleImageBlockI,
-} from 'entities/article/model/types/article';
+} from '@/entities/article/model/types/article';
 
 const blockWithoutTitle: ArticleImageBlockI = {
     id: '2',
@@ -27,7 +27,7 @@ describe('ArticleDetails', () => {
     });
 
     test('without block title, Text title should be not render', () => {
-        render(<ArticleImageBlock block={blockWithTitle} />);
+        render(<ArticleImageBlock block={blockWithoutTitle} />);
 
         expect(screen.queryByTestId('articleImageBlockTitle')).toBeNull();
     });

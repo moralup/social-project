@@ -1,0 +1,12 @@
+.svg {
+    fill: var(--inverted-primary-color);
+}
+
+.notifications {
+    min-height: 150px;
+    max-height: 300px;
+    width: var(--notification-width);
+    overflow-y: auto;
+    padding: 15px;
+    background: var(--inverted-bg-color);
+}

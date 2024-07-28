@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ArticleI } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<
@@ -21,7 +21,6 @@ export const fetchArticleById = createAsyncThunk<
 
         return article;
     } catch (e) {
-        console.log(e);
         return rejectWithValue('err');
     }
 });

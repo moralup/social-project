@@ -2,10 +2,10 @@ import { FC, memo } from 'react';
 import { NavLink } from '../navLink/navLink';
 import cls from './nav.module.scss';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/user';
-import { NavLinkI } from 'widgets/Sidebar/model/types/sidebar';
-import { getNavLinkList } from 'widgets/Sidebar/model/selectors/getNavLinkList';
-import { Vstack } from 'shared/ui/stack/Vstack/Vstack';
+import { getUserAuthData } from '@/entities/user';
+import { NavLinkI } from '@/widgets/Sidebar/model/types/sidebar';
+import { getNavLinkList } from '@/widgets/Sidebar/model/selectors/getNavLinkList';
+import { Vstack } from '@/shared/ui/stack';
 // import { navLinkList, NavLinkI } from 'shared/config/routeConfig/routeConfig';
 
 interface NavProps {

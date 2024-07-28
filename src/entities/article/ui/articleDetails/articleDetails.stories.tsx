@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetails } from './articleDetails';
-import { themeDecorator } from 'shared/config/storybook/themeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { storeDecorator } from 'shared/config/storybook/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
+import { Theme } from '@/entities/theme';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
 import { ArticleType, ArticleBlockType } from '../../model/types/article';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { routerDecorator } from '@/shared/config/storybook/routerDecorator';
 
 const data = {
     id: '1',
@@ -97,7 +98,7 @@ const meta: Meta<typeof ArticleDetails> = {
             },
         ],
     },
-    decorators: [storeDecorator({ articleDetails: { data } }, reducers)],
+    decorators: [storeDecorator({ articleDetails: { data } }, reducers), routerDecorator],
 };
 
 export default meta;

@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './commentList.module.scss';
-import { CommentI } from 'entities/comment/model/types/comment';
+import { CommentI } from '@/entities/comment/model/types/comment';
 import { CommentCard } from '../commentCard/commentCard';
-import { Text } from 'shared/ui/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface CommentListProps {
     className?: string;

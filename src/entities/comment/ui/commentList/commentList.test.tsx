@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { CommentList } from './commentList';
-import { componentRender } from 'shared/lib/tests/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 
 describe('Component CommentList', () => {
     test('with invalid comments should render text "No comments"', () => {

@@ -7,18 +7,19 @@ import {
     useEffect,
     useRef,
 } from 'react';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './page.module.scss';
-import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
+import { useTypedDispatch } from '@/shared/lib/hooks/useTypedDispatch';
 import { setScrollPosition } from '../model/slices/pageSlice';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getPageScrollByPath } from '../model/selectors/getPageScroll/getPageScroll';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
+import type { TestPropsI } from '@/shared/types/testing';
 
-interface PageProps {
+interface PageProps extends TestPropsI {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -59,6 +60,7 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.page, {}, [className])}
+            data-testid={props['data-testid'] || 'page'}
         >
             {children}
             {onScrollEnd && (

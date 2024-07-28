@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleI, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../articleListItem/articleListItem';
 import { ArticleListItemSkeleton } from '../articleSkeletons/articleListItemSkeleton/articleListItemSkeleton';

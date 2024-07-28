@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton } from 'shared/ui/skeleton/skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/skeleton';
 import cls from './articleDetailsSkeleton.module.scss';
 
 export const ArticleDetailsSkeleton: FC = () => {

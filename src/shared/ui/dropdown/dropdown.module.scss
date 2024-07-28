@@ -8,7 +8,6 @@
     margin: 0;
     padding: 0;
     border: none;
-    // color: var(--primary-color);
 }
 
 .menu {
@@ -19,7 +18,7 @@
     &OnLeft {
         right: 0;
     }
-    
+
     &OnRight {
         left: 0;
     }
@@ -30,7 +29,6 @@
     padding: 10px 25px;
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
-    border: none;
     box-sizing: border-box;
     border: 2px solid var(--inverted-bg-color);
     text-align: center;

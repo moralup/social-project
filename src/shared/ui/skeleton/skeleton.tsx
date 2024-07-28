@@ -1,17 +1,14 @@
 import { CSSProperties, FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string;
     width?: number | string;
     height?: number | string;
-
-    // Sets the border-radius
     radius?: number;
-
-    // Sets the border-radius 50%, but not priory than radius
     isCircle?: boolean;
+    inverted?: boolean;
 }
 
 export const Skeleton: FC<SkeletonProps> = props => {
@@ -21,7 +18,7 @@ export const Skeleton: FC<SkeletonProps> = props => {
         height,
         radius,
         isCircle,
-
+        inverted,
         ...otherProps
     } = props;
 
@@ -31,10 +28,12 @@ export const Skeleton: FC<SkeletonProps> = props => {
         borderRadius: radius || (isCircle && '50%') || 0,
     };
 
+    const mods = { [cls.inverted]: inverted };
+
     return (
         <div
             style={style}
-            className={classNames(cls.skeleton, {}, [className])}
+            className={classNames(cls.skeleton, mods, [className])}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         />

@@ -1,11 +1,11 @@
 import { memo, useCallback, useState } from 'react';
 
-import { LangSwitcher } from 'features/LangSwitcher';
-import { ThemeSwitcher } from 'features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Nav } from '../nav/nav/nav';
 import cls from './Sidebar.module.scss';

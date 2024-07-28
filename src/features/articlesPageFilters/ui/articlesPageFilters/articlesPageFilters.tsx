@@ -7,19 +7,19 @@ import { useChangeArticlesPageFilters } from '../../model/hooks/useChangeArticle
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/dynamicModuleLoader';
+} from '@/shared/lib/components/dynamicModuleLoader';
 import { initArticlesPageFilters } from '../../model/services/initArticlesPage/initArticlesPage';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 // Enums
-import { ArticleView, ArticleType } from 'entities/article';
-import { ArticleSortFiled } from '../../model/types/articlesPageFiltersSchema';
+import { ArticleView, ArticleType } from '@/entities/article';
+import { ArticleSortFiled, SortOrderType } from '../../model/types/articlesPageFiltersSchema';
 
 // Components
 import { ArticleViewSelector } from '../articleViewSelector/articleViewSelector';
-import { Select, type OptionI } from 'shared/ui/select/select';
-import { Tabs, type TabI } from 'shared/ui/tabs/tabs';
-import { Input, InputTheme } from 'shared/ui/Input/input';
+import { Select, type OptionI } from '@/shared/ui/select';
+import { Tabs, type TabI } from '@/shared/ui/tabs';
+import { Input, InputTheme } from '@/shared/ui/Input';
 
 // Selectors
 import { getArticlesPageFiltersView } from '../../model/selectors/getArticlesPageFiltersView';
@@ -48,7 +48,7 @@ const reducers: ReducersList = {
     articlesPageFilters: articlesPageFiltersReducer,
 };
 
-const sortFieldOptions: OptionI[] = [
+const sortFieldOptions: OptionI<ArticleSortFiled>[] = [
     {
         label: 'дате создания',
         value: ArticleSortFiled.CREATED,
@@ -63,7 +63,7 @@ const sortFieldOptions: OptionI[] = [
     },
 ];
 
-const sortOrderOptions: OptionI[] = [
+const sortOrderOptions: OptionI<SortOrderType>[] = [
     {
         label: 'возрастанию',
         value: 'asc',

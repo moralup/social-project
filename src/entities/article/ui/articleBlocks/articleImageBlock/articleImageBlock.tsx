@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ArticleImageBlockI } from '../../../model/types/article';
 
-import { Text } from 'shared/ui/Text';
+import { Text } from '@/shared/ui/Text';
 
 import cls from './articleImageBlock.module.scss';
 

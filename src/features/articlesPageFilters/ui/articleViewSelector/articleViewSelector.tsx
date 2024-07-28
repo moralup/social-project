@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView } from 'entities/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleView } from '@/entities/article';
 
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 // Icons
-import CompactViewIcon from 'shared/assets/icons/view-compact.svg';
-import DetailedViewIcon from 'shared/assets/icons/view-detailed.svg';
+import CompactViewIcon from '@/shared/assets/icons/view-compact.svg';
+import DetailedViewIcon from '@/shared/assets/icons/view-detailed.svg';
 
 import cls from './articleViewSelector.module.scss';
 

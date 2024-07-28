@@ -1,17 +1,14 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import {
-    AppRouteProps,
-    routeConfig,
-} from 'shared/config/routeConfig/routeConfig';
-import { PageLoader } from 'widgets/PageLoader';
+import { PageLoader } from '@/widgets/PageLoader';
 import { RequireAuth } from './requireAuth';
+import { AppRouteProps, routeConfig } from '../config/route';
 
 const renderWithWrapper = (route: AppRouteProps) => {
     const element = (
         <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
     );
-    // route.roles
+
     return (
         <Route
             key={route.path}

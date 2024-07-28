@@ -1,6 +1,6 @@
-import { setAuthData } from 'entities/user';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk';
-import { $api } from 'shared/api/api';
+import { setAuthData } from '@/entities/user';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
+import { $api } from '@/shared/api/api';
 import { loginByUsername } from './loginByUsername';
 
 jest.mock('shared/api/api');

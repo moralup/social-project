@@ -1,20 +1,20 @@
-import { ChangeEventHandler, FC, memo } from 'react';
+import { ChangeEventHandler } from 'react';
 import cls from './select.module.scss';
 
-export interface OptionI {
+export interface OptionI<T extends string> {
     label: string;
-    value: string;
+    value: T;
 }
-
-export interface SelectProps {
+export interface SelectProps<T extends string> {
     className?: string;
     label?: string;
     onChangeSelect: (value: string) => void;
-    options: OptionI[];
-    selectedOptionValue: string;
+    options: OptionI<T>[];
+    // selectedOptionValue: string;
+    selectedOptionValue: T;
 }
 
-export const Select: FC<SelectProps> = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         //
         className,
@@ -60,4 +60,4 @@ export const Select: FC<SelectProps> = memo((props: SelectProps) => {
             </select>
         </div>
     );
-});
+};

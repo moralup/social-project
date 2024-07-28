@@ -2,10 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
     ArticleSortFiled,
     ArticlesPageFiltersSchema,
+    SortOrderType,
 } from '../types/articlesPageFiltersSchema';
-import { ArticleView } from 'entities/article';
-import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
-import { ArticleType } from 'entities/article/model/types/article';
+import { ArticleView } from '@/entities/article';
+import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@/shared/consts/localStorage';
+import { ArticleType } from '@/entities/article/model/types/article';
 
 const viewFromLocalStorage = localStorage.getItem(
     ARTICLE_VIEW_LOCAL_STORAGE_KEY,
@@ -36,7 +37,7 @@ const articlesPageFiltersSlice = createSlice({
                 JSON.stringify(action.payload),
             );
         },
-        setOrder: (state, action: PayloadAction<'asc' | 'desc'>) => {
+        setOrder: (state, action: PayloadAction<SortOrderType>) => {
             state.order = action.payload;
         },
         setSearch: (state, action: PayloadAction<string>) => {

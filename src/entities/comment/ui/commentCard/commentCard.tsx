@@ -1,15 +1,15 @@
 import { FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
 import { CommentI } from '../../model/types/comment';
 
-import { Avatar } from 'shared/ui/avatar/avatar';
-import { Text } from 'shared/ui/Text';
-import { Skeleton } from 'shared/ui/skeleton/skeleton';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Avatar } from '@/shared/ui/avatar';
+import { Text } from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/skeleton';
 
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './commentCard.module.scss';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { getRouteProfile } from '@/shared/consts/router';
 
 interface CommentCardProps {
     className?: string;
@@ -21,7 +21,7 @@ export const CommentCard: FC<CommentCardProps> = props => {
     const { className, comment, isLoading } = props;
     const { text, user } = comment;
     const { username, avatar, id } = user;
-
+    console.log('avatar', avatar);
     if (isLoading) {
         return (
             <div
@@ -55,7 +55,7 @@ export const CommentCard: FC<CommentCardProps> = props => {
             className={classNames(cls.commentCard, {}, [className])}
         >
             <AppLink
-                to={`${RoutePath.profile}/${id}`}
+                to={getRouteProfile(id)}
                 className={cls.user}
             >
                 {avatar && (

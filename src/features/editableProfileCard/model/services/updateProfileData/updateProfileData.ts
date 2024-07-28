@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ProfileI } from 'shared/types/profile';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ProfileI } from '@/shared/types/profile';
 import { getProfileForm } from '../../selectors/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 import { ValidateProfileError } from '../../consts/consts';
@@ -26,8 +26,6 @@ export const updateProfileData = createAsyncThunk<
             );
             return response.data;
         } catch (e) {
-            // eslint-disable-next-line no-console
-            console.log(e);
             return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }
     },

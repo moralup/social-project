@@ -1,12 +1,13 @@
 import { memo } from 'react';
-import { EditableProfileCard } from 'features/editableProfileCard';
-import { Page } from 'widgets/page';
+import { EditableProfileCard } from '@/features/editableProfileCard';
+import { Page } from '@/widgets/page';
 import { useParams } from 'react-router-dom';
 
 const ProfilePage = memo(() => {
     const { id } = useParams();
+    console.log('location', id);
     return (
-        <Page>
+        <Page data-testid="ProfilePage">
             <EditableProfileCard id={id} />
         </Page>
     );

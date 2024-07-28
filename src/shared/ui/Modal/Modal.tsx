@@ -1,16 +1,18 @@
 import {
     FC,
-    MouseEvent,
     MutableRefObject,
-    ReactNode,
+    type ReactNode,
     useCallback,
     useEffect,
-    useRef,
     useState,
+    useRef,
 } from 'react';
-import { Portal } from 'shared/ui/Portal';
-import { classNames, type Mods } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@/entities/theme';
+
+import { Portal } from '@/shared/ui/Portal';
+import { Overlay } from '../overlay/overlay';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -26,7 +28,9 @@ export const Modal: FC<ModalProps> = props => {
     const { children, className, isOpen, onClose } = props;
     const [isClose, setIsClose] = useState(false);
     const { theme } = useTheme();
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setInterval>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setInterval>
+    >;
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -47,10 +51,6 @@ export const Modal: FC<ModalProps> = props => {
         [closeHandler],
     );
 
-    const onContentClick = (e: MouseEvent<HTMLElement>): void => {
-        e.stopPropagation();
-    };
-
     useEffect(() => {
         if (isOpen) window.addEventListener('keydown', onKeyDown);
 
@@ -60,7 +60,7 @@ export const Modal: FC<ModalProps> = props => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Mods = {
+    const mods = {
         [cls.opened]: isOpen,
         [cls.closed]: isClose,
     };
@@ -68,16 +68,12 @@ export const Modal: FC<ModalProps> = props => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [theme])}>
-                <div
+                <Overlay
                     className={cls.overlay}
                     onClick={closeHandler}
-                >
-                    <div
-                        className={classNames(cls.content, {}, [className])}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                />
+                <div className={classNames(cls.content, {}, [className])}>
+                    {children}
                 </div>
             </div>
         </Portal>

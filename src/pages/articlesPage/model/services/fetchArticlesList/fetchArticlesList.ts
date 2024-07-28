@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ArticleI } from 'entities/article';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleI } from '@/entities/article';
 import { getArticlesPageLimit } from '../../selectors/getArticlesPageLimit';
 import { getGetArticlesPagePaginationPage } from '../../selectors/getGetArticlesPagePaginationPage';
-import { getArticlesPageFiltersUrl } from 'features/articlesPageFilters';
-import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import { getArticlesPageFiltersUrl } from '@/features/articlesPageFilters';
+import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
 export interface fetchArticlesListOptions {
     replace?: boolean;
@@ -41,7 +41,6 @@ export const fetchArticlesList = createAsyncThunk<
 
         return articles;
     } catch (e) {
-        console.log(e);
         return rejectWithValue('err');
     }
 });

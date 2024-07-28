@@ -1,0 +1,23 @@
+.popup {
+    position: relative;
+}
+
+.triggerBtn {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.panel {
+    position: absolute;
+
+    &OnLeft {
+        right: 0;
+    }
+
+    &OnRight {
+        left: 0;
+    }
+}

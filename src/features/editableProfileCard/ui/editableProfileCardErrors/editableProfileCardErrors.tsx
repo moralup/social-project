@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { validateErrorTranslates } from '../../model/consts/consts';
 
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 
 import { getProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
 

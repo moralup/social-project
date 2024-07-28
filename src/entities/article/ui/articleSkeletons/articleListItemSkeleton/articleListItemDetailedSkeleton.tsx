@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Skeleton } from 'shared/ui/skeleton/skeleton';
+import { Skeleton } from '@/shared/ui/skeleton';
 import cls from './articleListItemDetailedSkeleton.module.scss';
 
 export const ArticleListItemDetailedSkeleton: FC = () => {

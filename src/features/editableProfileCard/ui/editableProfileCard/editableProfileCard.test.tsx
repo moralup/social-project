@@ -2,15 +2,15 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { $api } from 'shared/api/api';
+import { $api } from '@/shared/api/api';
 import { profileReducer } from '../../model/slice/editableProfileCardSlice';
-import { componentRender } from 'shared/lib/tests/componentRender';
-import { titleCase } from 'shared/lib/titleCase/titleCase';
-import { MIN_AGE } from 'shared/consts/age';
+import { componentRender } from '@/shared/lib/tests/componentRender';
+import { titleCase } from '@/shared/lib/titleCase/titleCase';
+import { MIN_AGE } from '@/shared/consts/age';
 
 import { ValidateProfileError } from '../../model/consts/consts';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ProfileI } from 'shared/types/profile';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ProfileI } from '@/shared/types/profile';
 
 import { EditableProfileCard } from './editableProfileCard';
 

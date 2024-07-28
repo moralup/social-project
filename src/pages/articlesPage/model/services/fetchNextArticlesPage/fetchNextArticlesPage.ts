@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { getGetArticlesPagePaginationPage } from '../../selectors/getGetArticlesPagePaginationPage';
 import { setPage } from '../../slices/articlesPageSlice';
 import { getArticlesPageIsLoading } from '../../selectors/getArticlesPageIsLoading';
@@ -21,13 +21,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
             dispatch(fetchArticlesList({ replace: false }));
             dispatch(setPage(page + 1));
         }
-
-        // eslint-disable-next-line no-promise-executor-return, @typescript-eslint/no-unused-vars
-        const a = await new Promise(res => setTimeout(res, 200));
-
-        return undefined;
     } catch (e) {
-        console.log(e);
         return rejectWithValue('err');
     }
 });

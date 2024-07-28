@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ProfileI } from 'shared/types/profile';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ProfileI } from '@/shared/types/profile';
 import { ValidateProfileError } from '../../consts/consts';
 
 export const fetchProfileData = createAsyncThunk<
@@ -13,7 +13,6 @@ export const fetchProfileData = createAsyncThunk<
         if (!response.data) {
             throw new Error();
         }
-
         return response.data;
     } catch (e) {
         // eslint-disable-next-line no-console

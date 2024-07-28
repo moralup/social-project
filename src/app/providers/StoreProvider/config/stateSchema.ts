@@ -8,14 +8,14 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 
 // *State Schemas
-import { UserSchema } from 'entities/user';
-import { LoginSchema } from 'features/authByUsername';
-import { ProfileSchema } from 'features/editableProfileCard/model/types/profileSchema';
-import { ArticleDetailsSchema } from 'entities/article';
-import { ArticlesPageSchema } from 'pages/articlesPage';
-import { PageSchema } from 'widgets/page';
-import { ArticlesPageFiltersSchema } from 'features/articlesPageFilters';
-import { rtkApi } from 'shared/api/rtkApi';
+import { UserSchema } from '@/entities/user';
+import { LoginSchema } from '@/features/authByUsername';
+import { ProfileSchema } from '@/features/editableProfileCard/model/types/profileSchema';
+import { ArticleDetailsSchema } from '@/entities/article';
+import { ArticlesPageSchema } from '@/pages/articlesPage';
+import { PageSchema } from '@/widgets/page';
+import { ArticlesPageFiltersSchema } from '@/features/articlesPageFilters';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
     user: UserSchema;

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Input, InputTheme } from 'shared/ui/Input/input';
-import { Avatar, AvatarSize } from 'shared/ui/avatar/avatar';
+import { Input, InputTheme } from '@/shared/ui/Input';
+import { Avatar, AvatarSize } from '@/shared/ui/avatar';
 
-import type { ProfileI } from 'shared/types/profile';
+import type { ProfileI } from '@/shared/types/profile';
 import cls from './profileCard.module.scss';
 
 interface ProfileCardProps {
@@ -39,12 +39,12 @@ export const ProfileCard: FC<ProfileCardProps> = props => {
     } = props;
 
     const {
-        firstName,
-        lastName,
+        firstName = '',
+        lastName = '',
         age,
-        country,
-        city,
-        username,
+        country = '',
+        city = '',
+        username = '',
         avatar,
         //
     } = data;

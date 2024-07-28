@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { themeDecorator } from 'shared/config/storybook/themeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { storeDecorator } from 'shared/config/storybook/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
+import { Theme } from '@/entities/theme';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
 import { ReducersMapObject } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { loginReducer } from 'features/authByUsername/model/slice/loginSlice';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { loginReducer } from '@/features/authByUsername/model/slice/loginSlice';
 import LoginForm from './loginForm';
 
 const baseStore: DeepPartial<StateSchema> = {

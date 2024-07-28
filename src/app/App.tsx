@@ -1,15 +1,15 @@
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import { AppRouter } from 'app/providers/router';
-import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import { Theme, useTheme } from '@/entities/theme';
+import { AppRouter } from '@/app/providers/router';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 
-import { initAuthData } from 'entities/user';
+import { initAuthData } from '@/entities/user';
 
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { getInited } from 'entities/user/model/selectors/getInited';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { getInited } from '@/entities/user/model/selectors/getInited';
 
 function App() {
     const { theme } = useTheme();

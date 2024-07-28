@@ -1,5 +1,5 @@
 import { FC, memo, MouseEvent, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './tabs.module.scss';
 
 export interface TabI {

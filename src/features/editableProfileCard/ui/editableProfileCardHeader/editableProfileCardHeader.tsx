@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Text } from '@/shared/ui/Text';
 
 import cls from './editableProfileCardHeader.module.scss';
 import { useSelector } from 'react-redux';
-import { getIsCanEdit } from 'features/editableProfileCard/model/selectors/getIsCanEdit';
+import { getIsCanEdit } from '@/features/editableProfileCard/model/selectors/getIsCanEdit';
 
 interface HeaderProps {
     className?: string;

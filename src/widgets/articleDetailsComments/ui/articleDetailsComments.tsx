@@ -1,9 +1,9 @@
-import { Text } from 'shared/ui/Text';
-import { AddCommentForm } from 'features/addCommentForm';
-import { CommentList } from 'entities/comment';
+import { Text } from '@/shared/ui/Text';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { CommentList } from '@/entities/comment';
 import { useArticleComments } from '../api/articleCommentsApi';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Vstack } from 'shared/ui/stack';
+import { Loader } from '@/shared/ui/Loader';
+import { Vstack } from '@/shared/ui/stack';
 
 interface ArticleDetailsCommentsProps {
     articleId: string;

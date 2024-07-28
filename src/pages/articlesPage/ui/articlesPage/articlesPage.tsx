@@ -4,12 +4,12 @@ import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import {
     ReducersList,
     DynamicModuleLoader,
-} from 'shared/lib/components/dynamicModuleLoader';
+} from '@/shared/lib/components/dynamicModuleLoader';
 
-import { useTypedDispatch } from 'shared/lib/hooks/useTypedDispatch';
-import { Page } from 'widgets/page';
+import { useTypedDispatch } from '@/shared/lib/hooks/useTypedDispatch';
+import { Page } from '@/widgets/page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { ArticlesPageFilters } from 'features/articlesPageFilters';
+import { ArticlesPageFilters } from '@/features/articlesPageFilters';
 import { InfiniteArticleList } from '../infiniteArticleList/infiniteArticleList';
 
 interface ArticlesPageProps {
@@ -32,7 +32,10 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
             reducers={reducers}
             saveAfterUnmount
         >
-            <Page onScrollEnd={onLoadNextPart}>
+            <Page
+                data-testid="ArticlesPage"
+                onScrollEnd={onLoadNextPart}
+            >
                 <ArticlesPageFilters />
                 <InfiniteArticleList />
             </Page>

@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Text } from 'shared/ui/Text';
-import { ArticleList, ArticleView } from 'entities/article';
-import { Vstack } from 'shared/ui/stack';
+import { Text } from '@/shared/ui/Text';
+import { ArticleList, ArticleView } from '@/entities/article';
+import { Vstack } from '@/shared/ui/stack';
 import { useArticleRecommendationsList } from '../api/articleRecommendationsApi';
 
 interface ArticleRecListProps {
