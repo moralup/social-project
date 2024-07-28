@@ -24,7 +24,6 @@
     "prepare": "husky",
     "refactor:imports": "ts-node ./scripts/refactoring/updateImports.ts",
     "refactor:public-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUi.ts",
-    "postinstall": "rmdir /s /q .\\node_modules\\.cache"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint"
