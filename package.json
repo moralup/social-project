@@ -23,7 +23,7 @@
     "storybook:build": "storybook build -c config/storybook",
     "prepare": "husky",
     "refactor:imports": "ts-node ./scripts/refactoring/updateImports.ts",
-    "refactor:public-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUi.ts",
+    "refactor:public-api": "ts-node ./scripts/refactoring/createPublicApiForSharedUi.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint"
