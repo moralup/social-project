@@ -23,7 +23,7 @@ export interface AvatarProps {
     theme?: AvatarTheme;
     size?: AvatarSize;
     inverted?: boolean;
-    'data-testid': string;
+    'data-testid'?: string;
 }
 
 export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
